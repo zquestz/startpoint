@@ -5,6 +5,11 @@ class Contact < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_format_of :email, :with => Authlogic::Regex.email
   
+  # Hook for full name
+  def full_name
+    "#{first_name} #{last_name}".strip
+  end
+  
   # Slug the url.
   def to_param
     "#{id}-#{email.parameterize}"
