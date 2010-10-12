@@ -1,0 +1,46 @@
+<%- session_key_name = ActionController::Base.session_options[:key] -%>
+<%- 
+uploadify_extensions = []
+for ext in @pdf.extensions
+	uploadify_extensions.push("*." + ext)
+end
+-%>
+$(document).ready(function($) {
+  $('#pdf_submit').click(function(){
+    $('#pdf_file').uploadifyUpload();
+    return false;
+  });
+
+  $('#pdf_file').uploadify({
+    "cancelImg" : "/uploadify/cancel.png",
+    "buttonText" : "Browse",
+    "scriptData" : {
+      "<%= session_key_name %>" : encodeURIComponent("<%= u(cookies[session_key_name]) %>"),
+      "authenticity_token" : encodeURIComponent("<%= u(form_authenticity_token) %>")
+    },
+    "multi" : true,
+    "script" : "<%= admin_pdfs_path %>",
+    "uploader" : "/uploadify/uploadify.swf",
+    "fileDesc" : "Please select pdf files. Valid formats are: " + "<%= @pdf.extensions.join(", ")%>",
+	  "fileExt" : "<%= uploadify_extensions.join(";") %>",
+	  'onComplete': function(event, queueID, fileObj, response, data) {
+       // convert the response from string formmatted as json to a json object
+       var response = JSON.parse(response);
+       var current_ids = $('#pdf_pdf_ids').val();
+       current_ids = current_ids.split('/');
+       current_ids.push(response.pdf_id);
+       $('#pdf_pdf_ids').val(current_ids.join('/'));
+	     fileName_location = "#pdf_file" + queueID + " .fileName";
+	     percentage_location = "#pdf_file" + queueID + " .percentage";
+	     cancel_location = "#pdf_file" + queueID + " .cancel";
+       $(fileName_location).html(fileObj.name + " - " + response.success);
+	     $(percentage_location).empty();
+	     $(cancel_location).empty();
+       return false;
+    },
+	  "onAllComplete" : function(event, data) {
+	    $('#status_message').show();
+      $('#status_message').html('<strong><%= t(:finished) -%></strong> <%= t(:next) %>: <a href="/admin/pdfs' + $('#pdf_pdf_ids').val() + '/edit"><%= t(:add_names_descriptions) -%></a> - <%= t(:or) -%> - <%= link_to t(:go_back), safe_location(admin_pdfs_path) -%>');
+    }
+  });
+})

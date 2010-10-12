@@ -1,0 +1,12 @@
+<tr class="<%= cycle('even', 'odd') %>">
+  <td><%= check_box_tag 'pdfs[]', pdf.id %></td>
+  <td><%=h pdf.name %></td>
+  <td><%= link_to(pdf.file_file_name, pdf.file.url) %></td>
+  <td><%=h pdf.user.blank? ? t(:not_available) : pdf.user.login %></td>
+  <td><%= pdf.pages.blank? ? t(:not_available) : pdf.pages.map {|page| link_to((h page.name), admin_page_path(page))}.join(", ") %></td>
+  <td>
+    <%= link_to(t(:show), admin_pdf_path(pdf)) %> | 
+    <%= link_to(t(:edit), edit_admin_pdf_path(pdf)) %> | 
+    <%= link_to(t(:destroy), admin_pdf_path(pdf), :confirm =>  t(:confirmation_prompt), :method => :delete) %>
+  </td>
+</tr>

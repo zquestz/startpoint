@@ -1,0 +1,20 @@
+<h2><%= t(:listing_users) -%></h2>
+<p>
+  <%= link_to(t(:new_user), new_admin_user_path) %>
+</p>
+<% if @users.blank? %>
+<p>
+  <%= t(:no_users) -%>
+</p>
+<% else %>
+<table class="admin_format">
+  <tr>
+    <th><%= t('activerecord.attributes.user.avatar') -%></th>
+    <th><%= sort_bar([:login, :is_admin, :first_name, :last_name, :email], '</th><th>') %></th>
+    <th><%= t(:options) -%></th>
+  </tr>
+  <%- reset_cycle -%>
+  <%= render @users %>
+</table>
+<%= will_paginate @users %>
+<%- end -%>

@@ -1,0 +1,49 @@
+<h2><%= t(:show_page) -%></h2>
+<p>
+  <%= link_to(t(:edit), edit_admin_page_path(@page)) -%> | 
+  <%= link_to(t(:back), safe_location(admin_pages_path)) -%>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.page.name') -%>:</b>
+  <%=h @page.name %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.page.title') -%>:</b>
+  <%=h @page.title %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.page.heading') -%>:</b>
+  <%=h @page.heading %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.page.content') -%>:</b>
+</p>
+<%- if @page.content.present? -%>
+<div class="htmlBox"><%= @page.content %></div>
+<%- end -%>
+<p>
+  <b><%= t('activerecord.attributes.page.meta_description') -%>:</b>
+  <%=h @page.meta_description %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.page.meta_keywords') -%>:</b>
+  <%=h @page.meta_keywords %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.page.protected') -%>:</b>
+  <%= @page.protected ? t(:option_yes) : t(:option_no) %>
+</p>
+<%- if @page.images.length > 0 -%>
+<h3><%= t(:section_images) %></h3>
+<%= render :partial => "admin/images/image_stub", :collection => @page.images %>
+<div class="reset"></div>
+<%- end -%>
+<%- if @page.pdfs.length > 0 -%>
+<h3><%= t(:section_pdfs) %></h3>
+<%= render :partial => "admin/pdfs/pdf_stub", :collection => @page.pdfs %>
+<div class="reset"></div>
+<%- end -%>
+<p>
+  <%= link_to(t(:edit), edit_admin_page_path(@page)) -%> | 
+  <%= link_to(t(:back), safe_location(admin_pages_path)) -%>
+</p>

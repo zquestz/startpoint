@@ -1,0 +1,29 @@
+<%= f.error_messages %>
+<div class="fs">
+  <%= f.label :name %>
+  <%= @page.new_record? ? (f.text_field :name) : (f.text_field :name, :disabled => true)  %>
+</div>
+<div class="fs">
+  <%= f.label :title %>
+  <%= f.text_field :title, :size => 60 %>
+</div>
+<div class="fs">
+  <%= f.label :heading %>
+  <%= f.text_field :heading, :size => 60 %>
+</div>
+<div class="fs">
+  <%= f.label :content %>
+  <%= f.text_area :content, :class => 'mceEditor', :cols => 60 %>
+</div>
+<div class="fs">
+  <%= f.label :meta_description %>
+  <%= f.text_area :meta_description, :cols => 60, :rows => 3 %>
+</div>
+<div class="fs">
+  <%= f.label :meta_keywords %>
+  <%= f.text_field :meta_keywords, :size => 60 %>
+</div>
+<div class="fs">
+  <%= f.label :protected, nil, :class => 'inline' %>
+  <%= f.check_box :protected %>
+</div>

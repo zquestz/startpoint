@@ -1,0 +1,34 @@
+@import '_variables';
+
+/* ###################################### */
+/* Admin Tables                           */
+/* ###################################### */
+
+.admin_format { 
+	width: 100%; 
+	border-left: @admin-table-border; 
+	border-bottom: @admin-table-border; 
+	border-collapse: collapse;
+	
+  th { 
+    background-color: @admin-table-border-color; 
+    padding: 5px; 
+    border-right: 1px solid @admin-table-border; 
+    text-align: left;
+  }
+  
+  th a {
+    text-decoration: none !important;
+    color: black;
+  }
+  
+  td { 
+    padding: 5px;
+    border-top: @admin-table-border;
+    border-right: @admin-table-border;
+    text-align: left;
+  }
+  
+  .even { background-color: @admin-table-even-row; }
+  .accent { background-color: @admin-table-accent; }
+}

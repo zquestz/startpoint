@@ -1,0 +1,24 @@
+<div class="batch_display_item">
+  <fieldset class="batch_item">
+    <div class="fs">
+      <%= label_tag "pdf_file_file_name_#{batch_pdf.id}", t('activerecord.attributes.pdf.file_file_name') %>
+      <%= link_to(batch_pdf.file_file_name, batch_pdf.file.url) %>
+    </div>
+    <div class="fs">
+      <%= label_tag "pdf_page_ids_#{batch_pdf.id}", t('activerecord.attributes.pdf.pages') %>
+      <%= select_tag "pdf[page_ids_#{batch_pdf.id.to_s}]", options_from_collection_for_select(Page.all, 'id', 'name', :selected => batch_pdf.page_ids), :id => "pdf_page_ids_#{batch_pdf.id}", :multiple => true, :title => t(:select_page) %>
+    </div>
+    <div class="fs">
+      <%= label_tag "pdf_name_#{batch_pdf.id}", t('activerecord.attributes.pdf.name') %>
+      <%= text_field_tag "pdf[name_#{batch_pdf.id}]", batch_pdf.name, :id => "pdf_name_#{batch_pdf.id}", :size => 28 %>
+    </div>
+    <div class="fs">
+      <%= label_tag "pdf_description_#{batch_pdf.id}", t('activerecord.attributes.pdf.description') %>
+      <%= text_area_tag "pdf[description_#{batch_pdf.id}]", batch_pdf.description, :id => "pdf_description_#{batch_pdf.id}", :cols => 28, :rows => 5 %>
+    </div>
+    <div class="fs">
+      <%= label_tag "pdf_tag_list_#{batch_pdf.id}", t(:pdf_tags) %>
+      <%= text_field_tag "pdf[tag_list_#{batch_pdf.id}]", batch_pdf.tag_list, :id => "pdf_tag_list_#{batch_pdf.id}", :size => 28 %>
+    </div>
+  </fieldset>
+</div>

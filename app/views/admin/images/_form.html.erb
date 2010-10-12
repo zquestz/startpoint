@@ -1,0 +1,50 @@
+<%- content_for(:stylesheets) do -%>
+  <%= stylesheet_link_tag('jquery.asmselect') %>
+<%- end -%>
+<%- content_for(:javascripts) do -%>
+  <%= javascript_include_tag('jquery.asmselect') %>
+  <script type="text/javascript">
+
+		$(document).ready(function() {
+			$("select[multiple]").asmSelect({
+				addItemTarget: 'bottom',
+				animate: true,
+				highlight: true,
+				sortable: false
+			});
+		}); 
+		
+	</script>
+<%- end -%>
+<%= f.error_messages %>
+<%= f.hidden_field :image_ids %>
+<%- unless @image.new_record? -%>
+<div class="fs">
+  <%= image_tag(@image.file.url(:edit), :class => "edit_image_banner") %><br />
+  <%= f.file_field :file %>
+</div>
+<div class="fs">
+  <%= f.label :galleries %>
+  <%= collection_select(:image, :gallery_ids, Gallery.all, :id, :title, {}, :multiple => true, :title => t(:select_gallery)) %>
+</div>
+<div class="fs">
+  <%= f.label :pages %>
+  <%= collection_select(:image, :page_ids, Page.all, :id, :name, {}, :multiple => true, :title => t(:select_page)) %>
+</div>
+<div class="fs">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div class="fs">
+  <%= f.label :tag_list, t(:image_tags) %>
+  <%= f.text_field :tag_list %>
+</div>
+<div class="fs">
+  <%= f.label :description %>
+  <%= f.text_area :description, :rows => 5 %>
+</div>
+<%- else -%>
+<div class='fs'>
+  <%= f.file_field :file %>
+</div>
+<%- end -%>

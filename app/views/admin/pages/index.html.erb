@@ -1,0 +1,19 @@
+<h2><%= t(:listing_pages) -%></h2>
+<p>
+  <%= link_to(t(:new_page), new_admin_page_path) %>
+</p>
+<% if @pages.blank? %>
+<p>
+  <%= t(:no_pages) -%>
+</p>
+<% else %>
+<table class="admin_format">
+  <tr>
+    <th><%= sort_bar([:name, :protected], '</th><th>') %></th>
+    <th><%= t(:options) -%></th>
+  </tr>
+  <%- reset_cycle -%>
+  <%= render @pages %>
+</table>
+<%= will_paginate @pages %>
+<%- end -%>

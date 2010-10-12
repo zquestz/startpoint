@@ -1,0 +1,44 @@
+<h2><%= t(:show_gallery) -%></h2>
+<p>
+  <%= link_to(t(:edit), edit_admin_gallery_path(@gallery)) %> | 
+  <%= link_to(t(:back), safe_location(admin_galleries_path)) %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.gallery.title') -%>:</b>
+  <%=h @gallery.title %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.gallery.description') -%>:</b>
+</p>
+<%- if @gallery.description.present? -%>
+<div class="htmlBox"><%= @gallery.description %></div>
+<%- end -%>
+<p>
+  <b><%= t('activerecord.attributes.gallery.tag_list') -%>:</b>
+  <%=h @gallery.tag_list %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.gallery.public') -%>:</b>
+  <%= @gallery.public ? t(:option_yes) : t(:option_no) %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.gallery.meta_description') -%>:</b>
+  <%=h @gallery.meta_description %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.gallery.meta_keywords') -%>:</b>
+  <%=h @gallery.meta_keywords %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.gallery.user_id') -%>:</b>
+  <%=h @gallery.user.login %>
+</p>
+<p>
+  <%= link_to(t(:edit), edit_admin_gallery_path(@gallery)) %> | 
+  <%= link_to(t(:back), safe_location(admin_galleries_path)) %>
+</p>
+<%- if @gallery.images.length > 0 -%>
+<hr />
+<h3>Images</h3>
+  <%= render :partial => "admin/images/image_stub", :collection => @gallery.images %>
+<%- end -%>

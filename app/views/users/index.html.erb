@@ -1,0 +1,13 @@
+<h2><%= t(:list_accounts) -%></h2>
+<% if @users.blank? %>
+<p>
+  <%= t(:no_accounts) -%>
+</p>
+<% else %>
+<div id="user_list">
+  <p><%= t(:sort) -%>: <%= sort_bar([:login, :created_at]) -%></p>
+  <%= render @users %>
+</div>
+<div class="reset"></div>
+<%= will_paginate @users %>
+<%- end -%>

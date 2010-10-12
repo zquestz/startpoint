@@ -1,0 +1,9 @@
+<h2><%= t(:new_page) -%></h2>
+<% form_for(@page, :url => admin_pages_path, :html => { :multipart => true }) do |f| %>
+  <%- field_set_tag do -%>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <div class="bs">
+      <%= f.submit t(:create) %>&nbsp;&nbsp;- <%= t(:or) -%> -&nbsp;&nbsp;<%= link_to(t(:cancel), safe_location(admin_pages_path)) %>
+    </div>
+  <%- end -%>
+<% end %>

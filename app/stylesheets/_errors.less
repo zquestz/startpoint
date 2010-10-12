@@ -1,0 +1,60 @@
+@import '_variables';
+
+/* ###################################### */
+/* Errors                                 */
+/* ###################################### */
+
+.fieldWithErrors {
+  padding: 0;
+  background-color: @error-main-color;
+  display: table;
+  
+  label {
+    padding: 5px !important;
+    background-color: @error-main-color;
+    color: @error-text-color;
+    display: table;
+  }
+}
+
+#errorExplanation {
+  width: 500px;
+  border: 1px solid @error-main-color;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: @error-background-color;
+  
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    background-color: @error-main-color;
+    color: @error-text-color;
+  }
+
+  p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 5px;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+.notice {
+  background-color: @flash-notice-background-color;
+  color: @flash-notice-text-color;
+  padding: 5px 20px;
+}
+
+.error {
+  background-color: @flash-error-background-color;
+  color: @flash-error-text-color;
+  padding: 5px 20px;
+}

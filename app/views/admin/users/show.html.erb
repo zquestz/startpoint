@@ -1,0 +1,66 @@
+<h2><%= t(:show_user) -%></h2>
+<%- if @user.avatar.exists? -%>
+<div class="user_show_avatar">
+  <%= image_tag @user.avatar.url(:medium) %>
+</div>
+<%- end -%>
+<p>
+  <%= link_to(t(:edit), edit_admin_user_path(@user)) -%> | 
+  <%= link_to(t(:back), safe_location(admin_users_path)) -%>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.first_name') -%>:</b>
+  <%=h @user.first_name %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.last_name') -%>:</b>
+  <%=h @user.last_name %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.login') -%>:</b>
+  <%=h @user.login %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.email') -%>:</b>
+  <%= display_email(@user.email) %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.is_admin') -%>:</b>
+  <%= @user.is_admin ? 'Yes' : 'No' %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.active') -%>:</b>
+  <%= @user.active? ? 'Yes' : 'No' %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.login_count') -%>:</b>
+  <%=h @user.login_count %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.failed_login_count') -%>:</b>
+  <%=h @user.failed_login_count %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.last_request_at') -%>:</b>
+  <%= @user.last_request_at ? (l @user.last_request_at) : '' %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.current_login_at') -%>:</b>
+  <%= @user.current_login_at ? (l @user.current_login_at) : '' %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.last_login_at') -%>:</b>
+  <%= @user.last_login_at ? (l @user.last_login_at) : '' %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.current_login_ip') -%>:</b>
+  <%=h @user.current_login_ip %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.last_login_ip') -%>:</b>
+  <%=h @user.last_login_ip %>
+</p>
+<p>
+  <%= link_to(t(:edit), edit_admin_user_path(@user)) -%> | 
+  <%= link_to(t(:back), safe_location(admin_users_path)) -%>
+</p>

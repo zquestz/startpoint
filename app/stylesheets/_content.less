@@ -1,0 +1,78 @@
+@import '_variables';
+
+/* ###################################### */
+/* Content                                */
+/* ###################################### */
+
+#content {
+  background-color: @background-color;
+  color: @text-color;
+  padding: 0 20px 20px;
+  margin-top: 20px;
+  
+  a, a:link, a:visited { 
+    color: @link-color;
+    text-decoration: @link-text-decoration;
+  }
+  
+  a:hover, a:active { 
+    color: @hover-color;
+    text-decoration: @link-text-decoration;
+  }
+  
+  select, option {
+    min-width: 200px;
+  }
+  
+  form input[type="submit"] {
+    padding: @button-padding;
+    background-color: @button-background-color;
+    color: @button-color;
+    border: @button-border;
+    font-size: @button-font-size;
+    font-weight: @button-font-weight;
+  }
+
+  form input[type="submit"]:hover {
+    padding: @button-padding;
+    background-color: @button-hover-background-color;
+    color: @button-color;
+    border: @button-border;
+    font-size: @button-font-size;
+    font-weight: @button-font-weight;
+  }
+  
+  form input[type="text"], form input[type="password"], form textarea {
+    padding: 4px;
+    font-size: 14px;
+    border: @default-border;
+  }
+  
+  fieldset {
+    border: @default-border;
+    padding: 10px;
+  }
+
+  label {
+    font-weight: bold;
+    display: block;
+  }
+  
+  #user_list .user img {
+   border: @default-border;
+   padding: 15px;
+   margin-right: 15px;
+   margin-bottom: 15px;
+   background: @default-background-color;
+   float: left;
+  }
+  
+  .user_show_avatar {
+    float: right;
+    padding: 0 10px;
+  }
+  
+  .remember_me {
+    font-size: 10px;
+  }
+}

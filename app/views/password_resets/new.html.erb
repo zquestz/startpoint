@@ -1,0 +1,15 @@
+<h2><%= t(:forgotten_password) -%></h2>
+
+<p><%= t(:reset_password_message) -%></p>
+
+<% form_tag password_resets_path do %>
+  <%- field_set_tag do -%>
+    <div class="fs">
+      <%= label_tag :email, t(:email) %>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="bs">
+      <%= submit_tag t(:reset_password_submit) %>&nbsp;&nbsp;- <%= t(:or) -%> -&nbsp;&nbsp;<%= link_to(t(:cancel), safe_location(root_path)) %>
+    </div>
+  <%- end -%>
+<% end %>

@@ -1,0 +1,27 @@
+<%- content_for :javascripts do -%>
+<%= javascript_include_tag(admin_images_path, :format => :js) %>
+<%- end -%>
+
+<h2><%= t(:listing_images) -%></h2>
+<p>
+  <%= link_to(t(:upload_images), new_admin_image_path) -%> | <%= link_to(t(:edit_selected), '#', :id => 'edit_selected') -%> | <%= link_to(t(:destroy_selected), '#', :id => 'delete_selected') -%>
+</p>
+<% if @images.blank? %>
+<p>
+  <%= t(:no_images) -%>
+</p>
+<% else %>
+<table class="admin_format">
+  <tr>
+    <th></th>
+    <th><%= t('activerecord.attributes.image.file') -%></th>
+	  <th><%= sort_bar([:name, :user_id], '</th><th>') %></th>
+	  <th><%= t('activerecord.attributes.image.galleries') -%></th>
+	  <th><%= t('activerecord.attributes.image.pages') -%></th>
+    <th><%= t(:options) -%></th>
+  </tr>
+  <%- reset_cycle -%>
+  <%= render @images %>
+</table>
+<%= will_paginate @images %>
+<%- end -%>

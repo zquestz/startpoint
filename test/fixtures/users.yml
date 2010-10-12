@@ -1,0 +1,55 @@
+admin:
+  id: 1
+  login: admin
+  email: admin@user.com
+  first_name: Mr.
+  last_name: Admin
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("password" + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  single_access_token: <%= Authlogic::Random.friendly_token %>
+  perishable_token: <%= Authlogic::Random.friendly_token %>
+  active: true
+  is_admin: true
+  
+admin2:
+  id: 2
+  login: admin2
+  email: admin2@user.com
+  first_name: Mr.
+  last_name: Admin
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("password" + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  single_access_token: <%= Authlogic::Random.friendly_token %>
+  perishable_token: <%= Authlogic::Random.friendly_token %>
+  active: true
+  is_admin: true
+  
+regular:
+  id: 3
+  login: regular
+  email: regular@user.com
+  first_name: Mr.
+  last_name: Regular
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("password" + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  single_access_token: <%= Authlogic::Random.friendly_token %>
+  perishable_token: <%= Authlogic::Random.friendly_token %>
+  active: true
+  is_admin: false
+  
+inactive:
+  id: 4
+  login: inactive
+  email: inactive@user.com
+  first_name: Mr.
+  last_name: Inactive
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("password" + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  single_access_token: <%= Authlogic::Random.friendly_token %>
+  perishable_token: <%= Authlogic::Random.friendly_token %>
+  active: false
+  is_admin: false

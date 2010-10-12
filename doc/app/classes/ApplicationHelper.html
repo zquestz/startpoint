@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: ApplicationHelper</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">ApplicationHelper</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/app/helpers/application_helper_rb.html">
+                app/helpers/application_helper.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Methods added to this helper will be available to all templates in the
+application.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000048">display_email</a>&nbsp;&nbsp;
+      <a href="#M000047">display_website</a>&nbsp;&nbsp;
+      <a href="#M000046">render_flash_messages</a>&nbsp;&nbsp;
+      <a href="#M000050">select_tag</a>&nbsp;&nbsp;
+      <a href="#M000049">sort_calc</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">ActionView::Helpers::FormTagHelper</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">select_tag</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">orig_select_tag</td>
+        </tr>
+                        </table>
+      </div>
+    </div>
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="#M000048" class="method-signature">
+          <span class="method-name">display_email</span><span class="method-args">(email, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Quick way to link an email address. Works just like <a
+href="ApplicationHelper.html#M000047">display_website</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000048-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000048-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 16</span>
+16:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display_email</span>(<span class="ruby-identifier">email</span>, <span class="ruby-identifier">options</span> = {})
+17:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">email</span>, <span class="ruby-value str">'mailto:'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">email</span>, <span class="ruby-identifier">options</span>)
+18:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="#M000047" class="method-signature">
+          <span class="method-name">display_website</span><span class="method-args">(url, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Quick way to link a url. Pass options to add classes/etc.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000047-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000047-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 11</span>
+11:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display_website</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span> = {})
+12:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span>)
+13:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="#M000046" class="method-signature">
+          <span class="method-name">render_flash_messages</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Render&#8216;s flash notices and errors
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000046-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000046-source">
+<pre>
+   <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 4</span>
+4:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render_flash_messages</span>
+5:     <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+6:       <span class="ruby-keyword kw">return</span> ([<span class="ruby-identifier">:notice</span>, <span class="ruby-identifier">:error</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-identifier">:div</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>)
+7:     <span class="ruby-keyword kw">end</span>
+8:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="#M000050" class="method-signature">
+          <span class="method-name">select_tag</span><span class="method-args">(name, select_options, options = {}, html_options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000050-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000050-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 32</span>
+32:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">select_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">select_options</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-identifier">html_options</span> = {})
+33:     <span class="ruby-comment cmt"># remove the options that select_tag doesn't currently recognise</span>
+34:     <span class="ruby-identifier">include_blank</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:include_blank</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:include_blank</span>)
+35:     <span class="ruby-identifier">prompt</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:prompt</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:prompt</span>)
+36:     
+37:     <span class="ruby-comment cmt"># if we didn't pass either - continue on as before</span>
+38:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">orig_select_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">select_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">html_options</span>)) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">include_blank</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">prompt</span>
+39: 
+40:     <span class="ruby-comment cmt"># otherwise, add them in ourselves</span>
+41:     <span class="ruby-identifier">prompt_option</span>  = <span class="ruby-value str">'&lt;option value=&quot;&quot;&gt;'</span> <span class="ruby-comment cmt"># to make sure it shows up as nil</span>
+42:     <span class="ruby-identifier">prompt_option</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">prompt</span> <span class="ruby-value">? </span><span class="ruby-identifier">prompt</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">'&lt;/option&gt;'</span>
+43:     <span class="ruby-identifier">new_select_options</span> = <span class="ruby-identifier">prompt_option</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">select_options</span>
+44:     <span class="ruby-identifier">orig_select_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">new_select_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">html_options</span>))
+45:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="#M000049" class="method-signature">
+          <span class="method-name">sort_calc</span><span class="method-args">(name, column, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This calculates which sort to use and generates a link for you.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000049-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000049-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 21</span>
+21:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sort_calc</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column</span>, <span class="ruby-identifier">options</span> = {})
+22:     <span class="ruby-identifier">condition</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:unless</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:unless</span>)
+23:     <span class="ruby-identifier">sort_direction</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:d</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'ASC'</span> <span class="ruby-operator">?</span> <span class="ruby-value str">'DESC'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'ASC'</span>
+24:     <span class="ruby-identifier">link_to_unless</span> <span class="ruby-identifier">condition</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">merge</span>( {<span class="ruby-identifier">:c</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">column</span>, <span class="ruby-identifier">:d</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sort_direction</span>} )
+25:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

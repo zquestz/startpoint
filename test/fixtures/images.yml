@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  user_id: 1
+  name: 24-arrow-back
+  description: N/A
+  md5: d41d49c9313cbb50d469c869ca73ad97
+  file_file_name: 24-arrow-back.png
+  file_content_type: image/png
+  file_file_size: 651
+  file_updated_at: 2010-08-05 22:40:31
+  width: 24
+  height: 24
+
+two:
+  id: 2
+  user_id: 1
+  name: 24-arrow-first
+  description: N/A
+  md5: a3a4c6a17cd256f301e2ac99c374944b
+  file_file_name: 24-arrow-first.png
+  file_content_type: image/png
+  file_file_size: 568
+  file_updated_at: 2010-08-05 22:40:31
+  width: 24
+  height: 24

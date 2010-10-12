@@ -1,0 +1,19 @@
+<h2><%= t(:listing_galleries) -%></h2>
+<p>
+  <%= link_to(t(:new_gallery), new_admin_gallery_path) %>
+</p>
+<% if @galleries.blank? %>
+<p>
+  <%= t(:no_galleries) -%>
+</p>
+<% else %>
+<table class="admin_format">
+  <tr>
+    <th><%= sort_bar([:title, :user_id, :public], '</th><th>') %></th>
+    <th><%= t(:options) -%></th>
+  </tr>
+  <%- reset_cycle -%>
+  <%= render @galleries %>
+</table>
+<%= will_paginate @galleries %>
+<%- end -%>

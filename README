@@ -1,0 +1,36 @@
+- startpoint -
+http://github.com/zquestz/startpoint
+
+Just a shell app that incorporates things you probably want in your application, but don't come by default in Rails. Still is a work in progress but the start is solid. Below is a list of features, when I get some more time I will write more docs. Everything should be pretty straightforward.
+
+This app uses bundler, and rvm is recommended. By default it uses the 1.8.7@startpoint gemset.
+
+Installation:
+* In rvm create a gemset for the app 'rvm gemset create 1.8.7@startpoint'
+* Make sure you have bundler installed, then run 'bundle install'. 
+* Create your default databases for development and test environments. 'rake db:create && RAILS_ENV=test rake db:create'
+* Run your migrations 'rake db:migrate && RAILS_ENV=test rake db:migrate'
+* Go over the settings file in 'config/settings.yml' and change whatever you need to.
+* Now run the seeds for your dev environment. 'rake db:seed'
+
+Now you should now be all set to go. Now you can fire up the app with './script/server'.
+
+I also use New Relic for all my applications. If you don't have an account there yet, go signup for a free account at http://newrelic.com. Once you have signed up for an account, go through their documentation and install your 'newrelic.yml' file in 'config/newrelic.yml'.
+
+To run the tests just run 'rake test:coverage' and they should all pass. =)
+
+Hightlights:
+
+* Custom settings via config/settings.yml
+* Full registration system using Authlogic with forgotten password and email confirmation support.
+* Avatar support via paperclip
+* Basic Notify controller for sending out emails. This uses Delayed Job to send all emails via a background task.
+* Admin roles and small admin interface for Users.
+* User caching system with a expiring sweeper using memcached and Rails.fetch/Rails.delete.
+* jrails with jQuery 1.4.2 and jQuery UI.
+* LESS has been setup using the more plugin/gem. All stylesheets are already setup as .less files.
+* TinyMce is available via the tinymce gem.
+* Pagination via will_paginate
+* Tagging lib acts-as-taggable-on already setup
+* reCaptcha setup for all signups.
+* Fully localized using i18n.

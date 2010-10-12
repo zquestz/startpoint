@@ -1,0 +1,175 @@
+* { font-family: verdana, helvetica, arial, sans-serif; }
+body {
+  padding: 0;
+  margin: 0;
+}
+body, p, ol, ul, td {
+  font-size: 13px;
+  line-height: 18px;
+}
+.reset { clear: both; }
+form .fs { padding: 0 0 12px; }
+form .fs .edit_image_banner { padding: 0 0 10px 0; }
+form .bs { padding: 0; }
+.htmlBox {
+  border: 1px solid #cccccc;
+  padding: 5px 15px;
+  max-width: 600px;
+}
+.fieldWithErrors {
+  padding: 0;
+  background-color: red;
+  display: table;
+}
+.fieldWithErrors label {
+  padding: 5px !important;
+  background-color: red;
+  color: white;
+  display: table;
+}
+#errorExplanation {
+  width: 500px;
+  border: 1px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #eeeeee;
+}
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: red;
+  color: white;
+}
+#errorExplanation p {
+  color: #333333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+.notice {
+  background-color: green;
+  color: white;
+  padding: 5px 20px;
+}
+.error {
+  background-color: red;
+  color: white;
+  padding: 5px 20px;
+}
+#header {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 20px 20px;
+}
+#header a {
+  color: #ffffff;
+  text-decoration: none;
+}
+#header a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+#header a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+#header a:hover {
+  color: #6c8ad5;
+  text-decoration: none;
+}
+#header a:active {
+  color: #6c8ad5;
+  text-decoration: none;
+}
+#header .menu { float: right; }
+#header .logo {
+  float: left;
+  font-size: 24px;
+}
+#content {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0 20px 20px;
+  margin-top: 20px;
+}
+#content a {
+  color: #000000;
+  text-decoration: underline;
+}
+#content a:link {
+  color: #000000;
+  text-decoration: underline;
+}
+#content a:visited {
+  color: #000000;
+  text-decoration: underline;
+}
+#content a:hover {
+  color: #666666;
+  text-decoration: underline;
+}
+#content a:active {
+  color: #666666;
+  text-decoration: underline;
+}
+#content select { min-width: 200px; }
+#content option { min-width: 200px; }
+#content form input[type="submit"] {
+  padding: 8px 16px;
+  background-color: #eeeeee;
+  color: #333333;
+  border: 1px solid #cccccc;
+  font-size: 14px;
+  font-weight: bold;
+}
+#content form input[type="submit"]:hover {
+  padding: 8px 16px;
+  background-color: #dddddd;
+  color: #333333;
+  border: 1px solid #cccccc;
+  font-size: 14px;
+  font-weight: bold;
+}
+#content form input[type="text"] {
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+}
+#content form input[type="password"] {
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+}
+#content form textarea {
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+}
+#content fieldset {
+  border: 1px solid #cccccc;
+  padding: 10px;
+}
+#content label {
+  font-weight: bold;
+  display: block;
+}
+#content #user_list .user img {
+  border: 1px solid #cccccc;
+  padding: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background: #eeeeee;
+  float: left;
+}
+#content .user_show_avatar {
+  float: right;
+  padding: 0 10px;
+}
+#content .remember_me { font-size: 10px; }

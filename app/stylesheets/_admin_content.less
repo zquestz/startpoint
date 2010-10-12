@@ -1,0 +1,143 @@
+@import '_variables';
+
+/* ###################################### */
+/* Admin Content                          */
+/* ###################################### */
+
+#admin_content {
+  background-color: @admin-background-color;
+  color: @admin-text-color;
+  padding: 0 20px 20px;
+  margin-top: 20px;
+  
+  #status_message {
+    margin-top: 10px;
+    display: none;
+  }
+  
+  #style_preview {
+    float: right;
+    width: 30%;
+    text-align: right;
+  }
+  
+  a, a:link, a:visited {
+    color: @admin-link-color;
+    text-decoration: @admin-link-text-decoration; 
+  }
+  
+  a:hover, a:active {
+    color: @admin-hover-color;
+    text-decoration: @admin-link-text-decoration;
+  }
+  
+  form input[type="text"], form input[type="password"], form textarea {
+    padding: 4px;
+    font-size: 14px;
+    border: @default-border;
+  }
+  
+  form input[type="submit"] {
+    padding: @admin-button-padding;
+    background-color: @admin-button-background-color;
+    color: @admin-button-color;
+    border: @admin-button-border;
+    font-size: @admin-button-font-size;
+    font-weight: @admin-button-font-weight;
+  }
+
+  form input[type="submit"]:hover {
+    padding: @admin-button-padding;
+    background-color: @admin-button-hover-background-color;
+    color: @admin-button-color;
+    border: @admin-button-border;
+    font-size: @admin-button-font-size;
+    font-weight: @admin-button-font-weight;
+  }
+  
+  fieldset {
+    border: @default-border;
+    padding: 10px;
+  }
+  
+  fieldset.batch_item {
+    width: 275px;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    padding: 2px;
+  }
+  
+  fieldset label.inline {
+    display: inline;
+    font-weight: bold;
+  }
+  
+  .user_show_avatar {
+    float: right;
+    padding: 0 10px;
+  }
+  
+  .batch_display_item {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .image_child {
+    padding: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: @default-border;
+    float: left;
+    white-space: nowrap;
+  
+    .image_preview {
+      float: left;
+      width: 50px;
+      
+      img {
+        vertical-align: middle;
+        padding: 2px;
+        border: @default-border;
+      }
+    }
+    .image_info {
+      font-size: 10px;
+      margin-right: 50px;
+    }
+  }
+  
+  .pdf_child {
+    padding: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: @default-border;
+    float: left;
+    white-space: nowrap;
+  
+    .pdf_preview {
+      float: left;
+      width: 50px;
+      
+      img {
+        vertical-align: middle;
+        padding: 2px;
+        border: @default-border;
+      }
+    }
+    .pdf_info {
+      font-size: 10px;
+      margin-right: 50px;
+    }
+  }
+  
+  .asset_reset {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+}

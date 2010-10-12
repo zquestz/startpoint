@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+private:
+  user_id: 1
+  title: First Gallery
+  public: false
+  meta_description: Description
+  meta_keywords: Keywords
+
+public:
+  user_id: 1
+  title: Second Gallery
+  public: true
+  meta_description: Description
+  meta_keywords: Keywords

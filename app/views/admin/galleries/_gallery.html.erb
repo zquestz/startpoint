@@ -1,0 +1,10 @@
+<tr class="<%= cycle('even', 'odd') %>">
+  <td><%=h gallery.title -%></td>
+  <td><%=h gallery.user.login -%></td>
+  <td><%=h gallery.public ? t(:option_yes) : t(:option_no) %></td>
+  <td>
+    <%= link_to(t(:show), admin_gallery_path(gallery)) %> | 
+    <%= link_to(t(:edit), edit_admin_gallery_path(gallery)) %> | 
+    <%= link_to(t(:destroy), admin_gallery_path(gallery), :confirm => t(:confirmation_prompt), :method => :delete) %>
+  </td>
+</tr>

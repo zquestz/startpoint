@@ -1,0 +1,28 @@
+@import '_variables';
+
+/* ###################################### */
+/* Admin Header                           */
+/* ###################################### */
+
+#admin_header {
+  background-color: @admin-header-background-color;
+  color: @admin-header-text-color;
+  padding: 20px 20px;
+  
+  a, a:link, a:visited {
+    color: @admin-header-link-color;
+    text-decoration: @admin-header-link-text-decoration;  
+  }
+  
+  a:hover, a:active {
+    color: @admin-header-hover-color;
+    text-decoration: @admin-header-link-text-decoration;
+  }
+  
+  .menu { float: right; }
+  
+  .logo { 
+    float: left;
+    font-size: 24px;
+  }
+}

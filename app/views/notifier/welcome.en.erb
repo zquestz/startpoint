@@ -1,0 +1,11 @@
+<h1>Welcome to <%= Setting.app_name %></h1>
+
+<p>
+  Your account has been activated. Click the link below to start using the site today.
+</p>
+
+<p>
+  <%= link_to(@root_url, @root_url) %>
+</p>
+
+<%= render :partial => 'footer' %>

@@ -1,0 +1,16 @@
+<%- content_for :javascripts do -%>
+<%= javascript_include_tag(new_admin_pdf_path, :format => :js) %>
+<%- end -%>
+<%- content_for :stylesheets do -%>
+<%= stylesheet_link_tag('/uploadify/uploadify') %>
+<%- end -%>
+<h2><%= t(:new_pdf) -%></h2>
+<% form_for(@pdf, :url => admin_pdfs_path, :html => { :multipart => true }) do |f| %>
+  <%- field_set_tag do -%>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <div class="bs">
+      <%= f.submit t(:create_pdfs) %>&nbsp;&nbsp;- <%= t(:or) -%> -&nbsp;&nbsp;<%= link_to(t(:cancel), safe_location(admin_pdfs_path)) %>
+    </div>
+    <div id="status_message"></div>
+  <%- end -%>
+<% end %>

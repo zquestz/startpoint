@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  user_id: 1
+  name: sample
+  description: N/A
+  md5: 47f2fe223f0966934147a6235ec2aabd
+  file_file_name: sample.pdf
+  file_content_type: application/x-pdf
+  file_file_size: 21846
+  file_updated_at: 2010-08-05 22:40:31
+
+two:
+  id: 2
+  user_id: 1
+  name: sample2
+  description: N/A
+  md5: b3effc7708048d8d4b03803c2f758694
+  file_file_name: sample2.pdf
+  file_content_type: application/x-pdf
+  file_file_size: 22620
+  file_updated_at: 2010-08-05 22:40:31

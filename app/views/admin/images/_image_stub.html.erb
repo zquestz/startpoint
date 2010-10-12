@@ -1,0 +1,10 @@
+<div class="image_child">
+  <div class= "image_preview">
+    <%= link_to((image_tag image_stub.file.url(:square_icon)), admin_image_path(image_stub)) %>
+  </div>
+  <div class="image_info">
+    Name: <%=h image_stub.name %><br />
+    ID: <%= image_stub.id %><br />
+    <%= link_to(t(:show), admin_image_path(image_stub)) %> | <%= link_to(t(:edit), edit_admin_image_path(image_stub)) %>
+  </div>
+</div>

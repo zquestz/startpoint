@@ -1,0 +1,6 @@
+.DS_Store
+log/*.log
+tmp/*
+db/*.sqlite3
+.bundle/*
+public/system/*

@@ -1,0 +1,38 @@
+$(document).ready(function($) {
+	// Batch edit all checked from index screen
+	$('#edit_selected').click(function(){
+		ids = $('input:checkbox[name=pdfs[]]:checked').fieldArray();
+		if (ids.length > 0) {
+			document.location = '/admin/pdfs/' + ids.join('/') + '/edit'
+		} else {
+		  alert('<%= t(:pdf_multi_edit_error) -%>');
+		}
+		return false;
+	});
+	
+	$('#delete_selected').click(function() {
+		ids = $('input:checkbox[name=pdfs[]]:checked').fieldArray();
+		if (ids.length > 0) {
+			if (confirm('Are you sure?')) { 
+				var f = document.createElement('form'); 
+				f.style.display = 'none'; 
+				this.parentNode.appendChild(f); 
+				f.method = 'POST'; 
+				f.action = '/admin/pdfs/' + ids.join('/');
+				var m = document.createElement('input');
+				m.setAttribute('type', 'hidden'); 
+				m.setAttribute('name', '_method'); 
+				m.setAttribute('value', 'delete'); 
+				f.appendChild(m);
+				var s = document.createElement('input');
+				s.setAttribute('type', 'hidden');
+				s.setAttribute('name', 'authenticity_token');
+				s.setAttribute('value', '<%= form_authenticity_token %>');
+				f.appendChild(s);f.submit();
+			}
+		} else {
+  	  alert('<%= t(:pdf_multi_destroy_error) -%>');
+  	}
+		return false;
+	});
+});

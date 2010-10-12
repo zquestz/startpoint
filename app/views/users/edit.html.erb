@@ -1,0 +1,9 @@
+<h2><%= t(:edit_profile) -%></h2>
+<% form_for(@user, :url => user_path(@user), :html => { :multipart => true }) do |f| %>
+  <%- field_set_tag do -%>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <div class="bs">
+      <%= f.submit t(:update) %>&nbsp;&nbsp;- <%= t(:or) -%> -&nbsp;&nbsp;<%= link_to(t(:cancel), safe_location(users_path)) %>
+    </div>
+  <%- end -%>
+<% end %>

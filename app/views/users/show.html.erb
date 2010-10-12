@@ -1,0 +1,32 @@
+<h2><%= I18n.translate(:profile_header, :user => (h @user.login)) -%></h2>
+<%- if @user.avatar.exists? -%>
+<div class="user_show_avatar">
+  <%= image_tag @user.avatar.url(:medium) %>
+</div>
+<%- end -%>
+<%- if current_user == @user -%>
+<p>
+  <%= link_to t(:edit), edit_user_path(@user) %>
+</p>
+<%- end -%>
+<p>
+  <b><%= t('activerecord.attributes.user.first_name') -%>:</b>
+  <%=h @user.first_name %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.last_name') -%>:</b>
+  <%=h @user.last_name %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.login') -%>:</b>
+  <%=h @user.login %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.created_at') -%>:</b>
+  <%= h @user.created_at.rfc822 %>
+</p>
+<%- if current_user == @user -%>
+<p>
+  <%= link_to(t(:edit), edit_user_path(@user)) %>
+</p>
+<%- end -%>

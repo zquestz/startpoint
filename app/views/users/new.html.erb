@@ -1,0 +1,12 @@
+<h2><%= I18n.translate(:signup_header, :app_name => Setting.app_name) -%></h2>
+<% form_for(@user, :url => users_path, :html => { :multipart => true }) do |f| %>
+  <%- field_set_tag do -%>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <div class="fs">
+      <%= recaptcha_tags %>
+    </div>
+    <div class="bs">
+      <%= f.submit t(:create) %>&nbsp;&nbsp;- <%= t(:or) -%> -&nbsp;&nbsp;<%= link_to(t(:cancel), safe_location(users_path)) %>
+    </div>
+  <%- end -%>
+<% end %>

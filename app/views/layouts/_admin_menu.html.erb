@@ -1,0 +1,11 @@
+<%- admin_nav = [] -%>
+<%- admin_nav.push(link_to(t(:section_images), admin_images_path)) -%>
+<%- admin_nav.push(link_to(t(:section_galleries), admin_galleries_path)) -%>
+<%- admin_nav.push(link_to(t(:section_pdfs), admin_pdfs_path)) -%>
+<%- admin_nav.push(link_to(t(:section_pages), admin_pages_path)) -%>
+<%- admin_nav.push(link_to(t(:section_admin_users), admin_users_path)) -%>
+<%- admin_nav.push(link_to(t(:section_main), root_path)) -%>
+<%- admin_nav.push(link_to(t(:section_logout), user_session_path, :method => :delete)) -%>
+<div class="menu">
+  <%= admin_nav.join('&nbsp;|&nbsp;')%>
+</div>

@@ -1,0 +1,17 @@
+<%- nav = [] -%>
+<%- nav.push(link_to(t(:section_home), root_path)) -%>
+<%- nav.push(link_to(t(:section_users), users_path)) if Setting.signup -%>
+<%- nav.push(link_to(t(:section_contact), contact_path)) if Setting.contact -%>
+<%- if current_user -%>
+  <%- nav.push(link_to(t(:section_admin), admin_path)) if current_user.is_admin -%>
+  <%- nav.push(link_to(t(:section_logout), user_session_path, :method => :delete)) -%>
+<%- else -%>
+  <%- nav.push(link_to(t(:section_signup), new_user_path)) if Setting.signup -%>
+  <%- nav.push(link_to(t(:section_login), new_user_session_path)) -%>
+<%- end -%>
+<div class="menu">
+  <%- if current_user -%>
+    <%= I18n.translate(:login_banner, :user => (Setting.signup ? (link_to((h current_user.login), user_path(current_user))) : (h current_user.login))) -%>
+  <%- end -%>
+  <%= nav.join('&nbsp;|&nbsp;')%>
+</div>

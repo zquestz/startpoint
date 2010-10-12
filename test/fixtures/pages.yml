@@ -1,0 +1,41 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+homepage:
+  id: 1
+  name: Homepage
+  title: Homepage
+  heading: Homepage
+  content: Some content.
+  meta_description: Description
+  meta_keywords: Keywords
+  protected: true
+  
+contact:
+  id: 2
+  name: Contact
+  title: Contact
+  heading: Contact
+  content: Some content.
+  meta_description: Description
+  meta_keywords: Keywords
+  protected: true
+  
+admin:
+  id: 3
+  name: Admin
+  title: Admin
+  heading: Admin
+  content: Some content.
+  meta_description: Description
+  meta_keywords: Keywords
+  protected: true
+
+unprotected:
+  id: 4
+  name: Unprotected
+  title: Unprotected
+  heading: Unprotected
+  content: Some content.
+  meta_description: Description
+  meta_keywords: Keywords
+  protected: false

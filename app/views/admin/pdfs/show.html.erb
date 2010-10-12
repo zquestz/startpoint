@@ -1,0 +1,37 @@
+<h2><%= t(:show_pdf) -%></h2>
+<p>
+  <%= link_to(t(:edit), edit_admin_pdf_path(@pdf)) -%> | 
+  <%= link_to(t(:back), safe_location(admin_pdfs_path)) -%>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.pdf.name') -%>:</b>
+  <%=h @pdf.name %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.pdf.file_file_name') -%>:</b>
+  <%= link_to(@pdf.file_file_name, @pdf.file.url) %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.pdf.md5') -%>:</b>
+  <%=h @pdf.md5 %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.pdf.user_id') -%>:</b>
+  <%=h @pdf.user.blank? ? "N/A" : @pdf.user.login %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.pdf.pages') -%>:</b>
+  <%= @pdf.pages.blank? ? "N/A" : @pdf.pages.map {|page| link_to((h page.name), admin_page_path(page)) }.join(", ") %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.pdf.tags') -%>:</b>
+  <%=h @pdf.tags %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.pdf.description') -%></b>
+  <%=h @pdf.description %>
+</p>
+<p>
+  <%= link_to(t(:edit), edit_admin_pdf_path(@pdf)) -%> | 
+  <%= link_to(t(:back), safe_location(admin_pdfs_path)) -%>
+</p>

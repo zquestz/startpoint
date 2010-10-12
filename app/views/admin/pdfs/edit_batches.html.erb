@@ -1,0 +1,36 @@
+<%- content_for(:stylesheets) do -%>
+  <%= stylesheet_link_tag('jquery.asmselect') %>
+  <!--[if IE]>
+  <style type="text/css">
+    .reset {
+      zoom: 1;
+      display: block;
+    }
+  </style>
+  <![endif]-->
+<%- end -%>
+<%- content_for(:javascripts) do -%>
+  <%= javascript_include_tag('jquery.asmselect') %>
+  <script type="text/javascript">
+
+		$(document).ready(function() {
+			$("select[multiple]").asmSelect({
+				addItemTarget: 'bottom',
+				animate: true,
+				highlight: true,
+				sortable: false
+			});
+		}); 
+		
+	</script>
+<%- end -%>
+<h2><%= t(:batch_edit_pdfs) -%></h2>
+<%- form_for(@pdfs, :url => admin_update_batch_pdfs_path(@pdfs)) do |f| -%>
+  <% @pdfs.in_groups_of(3, false) do |pdfs| %>
+  <div class="reset">
+    <%= render :partial => "admin/pdfs/batch_pdf", :collection => pdfs, :locals => {:f => f} %>
+  </div>
+  <% end %>
+  <div class="asset_reset"></div>
+  <div class="bs"><%= f.submit t(:update_all) %> - <%= t(:or) -%> - <%= link_to(t(:cancel), safe_location(admin_pdfs_path)) -%></div>
+<%- end -%>

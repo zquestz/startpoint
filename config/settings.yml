@@ -1,0 +1,38 @@
+---
+  # Default settings for app
+  default:
+    # Application Name
+    app_name: StartPoint
+    # Mailer Email
+    mailer_email: mailer@somewhere.com
+    # Support Email Address
+    support_email: support@somewhere.com
+    # Admin Email Address
+    admin_email: admin@somewhere.com
+    # Maintenance mode boolean
+    maintenance: false
+    # Allow user signup
+    signup: true
+    # Show contact page
+    contact: true
+    # Hostname
+    hostname: localhost:3000
+    # Signup Email Activation
+    email_activation: true
+    # Asset Host
+    asset_host: localhost:3000
+    # Default Page Title
+    page_title: StartPoint
+    # Default Meta Description
+    meta_description: StartPoint for Rails.
+    # Default Meta Keywords
+    meta_keywords: StartPoint
+  # Development settings
+  development:
+  # Staging settings
+  staging:
+  # Production settings
+  production:
+    asset_host: startpoint.com.local
+  # Test settings
+  test:

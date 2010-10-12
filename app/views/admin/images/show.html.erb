@@ -1,0 +1,50 @@
+<%= style_select(@image, params)%><h2><%= t(:show_image) -%></h2>
+<p>
+  <%= link_to(t(:edit), edit_admin_image_path(@image)) -%> | 
+  <%= link_to(t(:back), safe_location(admin_images_path)) -%>
+</p>
+<%- if @image.file.exists? -%>
+<div class="image_show_file">
+  <%= image_tag @image.file.url(params[:preview] || :medium) %>
+</div>
+<%- end -%>
+<p>
+  <b><%= t('activerecord.attributes.image.name') -%>:</b>
+  <%=h @image.name %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.image.md5') -%>:</b>
+  <%=h @image.md5 %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.image.height') -%>:</b>
+  <%=h @image.height %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.image.width') -%>:</b>
+  <%=h @image.width %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.image.user_id') -%>:</b>
+  <%=h @image.user.blank? ? "N/A" : @image.user.login %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.image.galleries') -%>:</b>
+  <%= @image.galleries.blank? ? "N/A" : @image.galleries.map {|gallery| link_to((h gallery.title), admin_gallery_path(gallery)) }.join(", ") %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.image.pages') -%>:</b>
+  <%= @image.pages.blank? ? "N/A" : @image.pages.map {|page| link_to((h page.name), admin_page_path(page)) }.join(", ") %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.image.tags') -%>:</b>
+  <%=h @image.tags %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.image.description') -%></b>
+  <%=h @image.description %>
+</p>
+<p>
+  <%= link_to(t(:edit), edit_admin_image_path(@image)) -%> | 
+  <%= link_to(t(:back), safe_location(admin_images_path)) -%>
+</p>

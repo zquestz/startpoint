@@ -1,0 +1,17 @@
+<tr class="<%= cycle('even', 'odd') %>">
+  <td><%= check_box_tag 'images[]', image.id %></td>
+  <td>
+    <%- if image.file.exists? -%>
+      <%= image_tag image.file.url(:small) %>
+    <%- end -%>
+  </td>
+  <td><%=h image.name %></td>
+  <td><%=h image.user.blank? ? t(:not_available) : image.user.login %></td>
+  <td><%= image.galleries.blank? ? t(:not_available) : image.galleries.map {|gallery| link_to((h gallery.title), admin_gallery_path(gallery))}.join(", ") %></td>
+  <td><%= image.pages.blank? ? t(:not_available) : image.pages.map {|page| link_to((h page.name), admin_page_path(page))}.join(", ") %></td>
+  <td>
+    <%= link_to(t(:show), admin_image_path(image)) %> | 
+    <%= link_to(t(:edit), edit_admin_image_path(image)) %> | 
+    <%= link_to(t(:destroy), admin_image_path(image), :confirm =>  t(:confirmation_prompt), :method => :delete) %>
+  </td>
+</tr>

@@ -1,0 +1,25 @@
+<%= f.error_messages %>
+<div class="fs">
+  <%= f.label :title %>
+  <%= f.text_field :title, :size => 60 %>
+</div>
+<div class="fs">
+  <%= f.label :description %>
+  <%= f.text_area :description, :class => 'mceEditor', :cols => 60, :rows => 3 %>
+</div>
+<div class="fs">
+  <%= f.label :tag_list, t(:gallery_tags) %>
+  <%= f.text_field :tag_list, :size => 60 %>
+</div>
+<div class="fs">
+  <%= f.label :meta_description %>
+  <%= f.text_area :meta_description, :cols => 60, :rows => 3 %>
+</div>
+<div class="fs">
+  <%= f.label :meta_keywords %>
+  <%= f.text_field :meta_keywords, :size => 60 %>
+</div>
+<div class="fs">
+  <%= f.label :public, nil, :class => 'inline' %>
+  <%= f.check_box :public %>
+</div>

@@ -1,0 +1,7 @@
+<div class="pdf_child">
+  <div class="pdf_info">
+    Name: <%=h pdf_stub.name %><br />
+    ID: <%= pdf_stub.id %><br />
+    <%= link_to(t(:show), admin_pdf_path(pdf_stub)) %> | <%= link_to(t(:edit), edit_admin_pdf_path(pdf_stub)) %>
+  </div>
+</div>

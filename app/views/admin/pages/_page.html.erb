@@ -1,0 +1,9 @@
+<tr class="<%= cycle('even', 'odd') %>">
+  <td><%=h page.name %></td>
+  <td><%=h page.protected ? t(:option_yes) : t(:option_no) %></td>
+  <td>
+    <%= link_to(t(:show), admin_page_path(page)) %> | 
+    <%= link_to(t(:edit), edit_admin_page_path(page)) %><%- unless page.protected -%> | 
+    <%= link_to(t(:destroy), admin_page_path(page), :confirm => t(:confirmation_prompt), :method => :delete) %><%- end -%>
+  </td>
+</tr>

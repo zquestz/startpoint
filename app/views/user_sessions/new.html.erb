@@ -1,0 +1,9 @@
+<h2><%= t(:login) -%></h2>
+<% form_for(@user_session, :url => user_session_path) do |f| %>
+  <%- field_set_tag do -%>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <div class="bs">
+      <%= f.submit t(:login_submit) %>
+    </div>
+  <%- end -%>
+<% end %>

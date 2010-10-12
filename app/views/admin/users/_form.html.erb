@@ -1,0 +1,35 @@
+<%= f.error_messages %>
+<div class="fs">
+  <%= f.label :login %>
+  <%= f.text_field :login %>
+</div>
+<div class="fs">
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+</div>
+<div class="fs">
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+</div>
+<div class="fs">
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+</div>
+<div class="fs">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+<div class="fs">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+</div>
+<div class="fs">
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar %>
+</div>
+<%- if @user.avatar.exists? -%>
+<div class="fs">
+  <%= image_tag @user.avatar.url(:thumb) %><br />
+  <%= link_to(t(:remove_avatar), {:controller => 'users', :action => 'unavatar', :id => @user}, {:method => :put}) %>
+</div>
+<%- end -%>

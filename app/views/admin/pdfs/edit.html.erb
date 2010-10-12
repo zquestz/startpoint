@@ -1,0 +1,9 @@
+<h2><%= t(:edit_pdf) -%></h2>
+<% form_for(@pdf, :url => admin_pdf_path(@pdf), :html => { :multipart => true }) do |f| %>
+  <%- field_set_tag do -%>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <div class="bs">
+      <%= f.submit t(:update) %>&nbsp;&nbsp;- <%= t(:or) -%> -&nbsp;&nbsp;<%= link_to(t(:cancel), safe_location(admin_pdfs_path)) -%>
+    </div>
+  <%- end -%>
+<% end %>

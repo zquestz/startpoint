@@ -1,0 +1,67 @@
+@import '_variables';
+
+/* ###################################### */
+/* jquery.asmselect                      */
+/* ###################################### */
+
+.asmContainer {
+  /* the newly created regular 'select' */
+  .asmSelect {
+  	display: inline; 
+  }
+
+  /* disabled options in new select */
+  .asmOptionDisabled {
+  	color: @asm-option-disabled; 
+  }
+
+  /* the highlight span */
+  .asmHighlight {
+  	padding: 0;
+  	margin: 0 0 0 1em;
+  }
+
+  /* html list that contains selected items */
+  .asmList {
+  	margin: 1em 0 0 0; 
+  	position: relative;
+  	display: block;
+  	padding-left: 0; 
+  	list-style: none; 
+  }
+
+  /* li item from the html list above */
+  .asmListItem {
+  	position: relative; 
+  	margin-left: 0;
+  	padding-left: 0;
+  	list-style: none;
+  	background: @asm-list-item-background;
+  	border: @asm-list-item-border; 
+  	width: 100%; 
+  	margin: 0 0 -1px 0; 
+  	line-height: 1em;
+  }
+
+  .asmListItem:hover {
+  	background-color: @asm-list-item-hover;
+  }
+
+  /* this is a span that surrounds the text in the item, except for the remove link */
+  .asmListItemLabel {
+  	padding: 5px; 
+  	display: block;
+  }
+
+  .asmListSortable .asmListItemLabel {
+  	cursor: move; 
+  }
+
+  /* the remove link in each list item */
+  .asmListItemRemove {
+  	position: absolute;
+  	right: 0; 
+  	top: 0;
+  	padding: 5px; 
+  }
+}

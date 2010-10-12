@@ -1,0 +1,23 @@
+<tr class="<%= cycle('even', 'odd') %>">
+  <td>
+    <%= image_tag user.avatar.url(:thumb) %>
+  </td>
+  <td><%=h user.login %></td>
+  <td><%=h user.is_admin ? t(:option_yes) : t(:option_no) %></td>
+  <td><%=h user.first_name %></td>
+  <td><%=h user.last_name %></td>
+  <td><%= display_email(user.email) %></td>
+  <td>
+    <%= link_to(t(:show), admin_user_path(user)) %> | 
+    <%= link_to(t(:edit), edit_admin_user_path(user)) %> | 
+    <%- if user.is_admin -%>
+    <%= link_to(t(:demote_admin), {:controller => 'users', :action => 'demote_admin', :id => user}, :confirm => t(:confirmation_prompt), :method => :put) %> | 
+    <%- else -%>
+    <%= link_to(t(:create_admin), {:controller => 'users', :action => 'create_admin', :id => user}, :confirm => t(:confirmation_prompt), :method => :put) %> | 
+    <%- end -%>
+    <%- unless user.active? -%>
+    <%= link_to(t(:activate_user), {:controller => 'users', :action => 'activate', :id => user}, :confirm => t(:confirmation_prompt), :method => :put) %> | 
+    <%- end -%>
+    <%= link_to(t(:destroy), admin_user_path(user), :confirm => t(:confirmation_prompt), :method => :delete) %>
+  </td>
+</tr>
