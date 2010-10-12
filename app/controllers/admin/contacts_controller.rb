@@ -62,6 +62,16 @@ class Admin::ContactsController < ApplicationController
       end
     end
   end
+  
+  # GET /admin/contacts/export
+  def export
+    send_data(
+      Contact.export, 
+      :filename => "contacts-#{Time.now.strftime('%d-%m-%Y-%H-%M')}.csv", 
+      :type => 'text/csv', 
+      :disposition => 'attachment'
+    )
+  end
 
   # PUT /admin/contacts/1
   # PUT /admin/contacts/1.xml

@@ -107,6 +107,15 @@ class Admin::ContactsControllerTest < ActionController::TestCase
     end
   end
   
+  test "admin should export contacts" do
+    if Setting.maintenance == false
+      UserSession.create(users(:admin))
+      get :export
+      
+      assert_response :success
+    end
+  end
+  
   test "admin should delete contact" do
     if Setting.maintenance == false
       UserSession.create(users(:admin))

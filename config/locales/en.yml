@@ -214,6 +214,9 @@ en:
   not_available: 'N/A'
   finished: 'Finished!'
   next: 'Next'
+  export: 'Export'
+  export_to_csv: 'Export To CSV'
+  import: 'Import'
   # Activerecord
   activerecord:
     models:

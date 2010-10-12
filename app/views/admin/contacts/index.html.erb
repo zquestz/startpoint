@@ -4,7 +4,7 @@
 
 <h2><%= t(:listing_contacts) -%></h2>
 <p>
-  <%= link_to(t(:new_contact), new_admin_contact_path) %> | <%= link_to(t(:destroy_selected), '#', :id => 'delete_selected') -%>
+  <%= link_to(t(:new_contact), new_admin_contact_path) %> | <%= link_to(t(:destroy_selected), '#', :id => 'delete_selected') -%> | <%= link_to(t(:export_to_csv), export_admin_contacts_path) -%>
 </p>
 <% if @contacts.blank? %>
 <p>

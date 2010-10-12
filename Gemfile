@@ -45,6 +45,9 @@ gem 'recaptcha', '>= 0.2.3', :require => 'recaptcha/rails'
 # Integrate LESS
 gem 'less', '>= 1.2.21'
 
+# Fastercsv
+gem 'fastercsv', '>= 1.5.3'
+
 # Add TinyMCE
 gem 'tiny_mce', '>= 0.1.4'
 

@@ -20,6 +20,7 @@ GEM
     daemons (1.1.0)
     delayed_job (2.0.3)
       daemons
+    fastercsv (1.5.3)
     jrails (0.6.0)
     less (1.2.21)
       mutter (>= 0.4.2)
@@ -64,6 +65,7 @@ DEPENDENCIES
   bluecloth (>= 2.0.7)
   bundler (>= 0.9.26)
   delayed_job (~> 2.0.3)
+  fastercsv (>= 1.5.3)
   jrails (>= 0.6.0)
   less (>= 1.2.21)
   mime-types (>= 1.16)
