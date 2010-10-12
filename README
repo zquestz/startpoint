@@ -6,7 +6,7 @@ Just a shell app that incorporates things you probably want in your application,
 This app uses bundler, and rvm is recommended. By default it uses the 1.8.7@startpoint gemset.
 
 Installation:
-* In rvm create a gemset for the app 'rvm gemset create 1.8.7@startpoint'
+* In rvm create a gemset for the app "rvm gemset create 'startpoint'"
 * Make sure you have bundler installed, then run 'bundle install'. 
 * Create your default databases for development and test environments. 'rake db:create && RAILS_ENV=test rake db:create'
 * Run your migrations 'rake db:migrate && RAILS_ENV=test rake db:migrate'
