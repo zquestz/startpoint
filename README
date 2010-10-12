@@ -24,6 +24,9 @@ Hightlights:
 * Custom settings via config/settings.yml
 * Full registration system using Authlogic with forgotten password and email confirmation support.
 * Avatar support via paperclip
+* Uploadify baked in for batch image and pdf uploading.
+* Setup for full mobile support via the mobile format, thanks to mobile-fu.
+* Replaced default mysql gem with the mysqlplus gem.
 * Basic Notify controller for sending out emails. This uses Delayed Job to send all emails via a background task.
 * Admin roles and small admin interface for Users.
 * User caching system with a expiring sweeper using memcached and Rails.fetch/Rails.delete.
