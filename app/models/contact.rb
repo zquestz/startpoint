@@ -24,9 +24,23 @@ class Contact < ActiveRecord::Base
   def self.export
     contacts = find(:all)
     csv_data = FasterCSV.generate do |csv|
-      csv << [I18n.t('activerecord.attributes.contact.email'), I18n.t('activerecord.attributes.contact.first_name'), I18n.t('activerecord.attributes.contact.last_name'), I18n.t('activerecord.attributes.contact.phone'), I18n.t('activerecord.attributes.contact.created_at'), I18n.t('activerecord.attributes.contact.updated_at')]
+      csv << [
+        I18n.t('activerecord.attributes.contact.email'), 
+        I18n.t('activerecord.attributes.contact.first_name'), 
+        I18n.t('activerecord.attributes.contact.last_name'), 
+        I18n.t('activerecord.attributes.contact.phone'), 
+        I18n.t('activerecord.attributes.contact.created_at'), 
+        I18n.t('activerecord.attributes.contact.updated_at')
+      ]
       for contact in contacts
-        csv << [contact.email, contact.first_name, contact.last_name, contact.phone, contact.created_at, contact.updated_at]
+        csv << [
+          contact.email, 
+          contact.first_name, 
+          contact.last_name,
+          contact.phone, 
+          contact.created_at, 
+          contact.updated_at
+        ]
       end
     end
     return csv_data
