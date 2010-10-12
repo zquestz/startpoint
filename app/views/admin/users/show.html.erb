@@ -61,6 +61,14 @@
   <%=h @user.last_login_ip %>
 </p>
 <p>
+  <b><%= t('activerecord.attributes.user.created_at') -%>:</b>
+  <%=h @user.created_at %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.user.updated_at') -%>:</b>
+  <%=h @user.updated_at %>
+</p>
+<p>
   <%= link_to(t(:edit), edit_admin_user_path(@user)) -%> | 
   <%= link_to(t(:back), safe_location(admin_users_path)) -%>
 </p>

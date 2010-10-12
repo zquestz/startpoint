@@ -32,6 +32,14 @@
   <%=h @pdf.description %>
 </p>
 <p>
+  <b><%= t('activerecord.attributes.pdf.created_at') -%>:</b>
+  <%=h @pdf.created_at %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.pdf.updated_at') -%>:</b>
+  <%=h @pdf.updated_at %>
+</p>
+<p>
   <%= link_to(t(:edit), edit_admin_pdf_path(@pdf)) -%> | 
   <%= link_to(t(:back), safe_location(admin_pdfs_path)) -%>
 </p>

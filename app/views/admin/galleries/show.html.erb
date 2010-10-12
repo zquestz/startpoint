@@ -34,6 +34,14 @@
   <%=h @gallery.user.login %>
 </p>
 <p>
+  <b><%= t('activerecord.attributes.gallery.created_at') -%>:</b>
+  <%=h @gallery.created_at %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.gallery.updated_at') -%>:</b>
+  <%=h @gallery.updated_at %>
+</p>
+<p>
   <%= link_to(t(:edit), edit_admin_gallery_path(@gallery)) %> | 
   <%= link_to(t(:back), safe_location(admin_galleries_path)) %>
 </p>

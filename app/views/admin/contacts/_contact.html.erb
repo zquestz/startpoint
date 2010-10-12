@@ -1,0 +1,10 @@
+<tr class="<%= cycle('even', 'odd') %>">
+  <td><%= check_box_tag 'contacts[]', contact.id %></td>
+  <td><%=h contact.email -%></td>
+  <td><%=h contact.created_at -%></td>
+  <td>
+    <%= link_to(t(:show), admin_contact_path(contact)) %> | 
+    <%= link_to(t(:edit), edit_admin_contact_path(contact)) %> | 
+    <%= link_to(t(:destroy), admin_contact_path(contact), :confirm => t(:confirmation_prompt), :method => :delete) %>
+  </td>
+</tr>

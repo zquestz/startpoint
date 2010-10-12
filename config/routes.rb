@@ -41,7 +41,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.edit_batch_pdfs 'pdfs/*ids/edit', :controller => 'pdfs', :action => 'edit_batches', :conditions => { :method => :get }
     admin.update_batch_pdfs 'pdfs/*ids', :controller => 'pdfs', :action => 'update_batches', :conditions => { :method => :put }
     admin.detroy_batch_pdfs 'pdfs/*ids', :controller => 'pdfs', :action => 'destroy_batches', :conditions => { :method => :delete }
-
+    admin.resources :contacts
+    admin.detroy_batch_contacts 'contacts/*ids', :controller => 'contacts', :action => 'destroy_batches', :conditions => { :method => :delete }
   end
   
   # Password reset routes.

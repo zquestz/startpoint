@@ -1,0 +1,9 @@
+<h2><%= t(:new_contact) -%></h2>
+<% form_for(@contact, :url => admin_contacts_path, :html => { :multipart => true }) do |f| %>
+  <%- field_set_tag do -%>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <div class="bs">
+      <%= f.submit t(:create) %>&nbsp;&nbsp;- <%= t(:or) -%> -&nbsp;&nbsp;<%= link_to(t(:cancel), safe_location(admin_contacts_path)) %>
+    </div>
+  <%- end -%>
+<% end %>

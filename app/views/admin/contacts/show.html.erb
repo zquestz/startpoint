@@ -1,0 +1,33 @@
+<h2><%= t(:show_contact) -%></h2>
+<p>
+  <%= link_to(t(:edit), edit_admin_contact_path(@contact)) %> | 
+  <%= link_to(t(:back), safe_location(admin_contacts_path)) %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.contact.email') -%>:</b>
+  <%= display_email(@contact.email) %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.contact.first_name') -%>:</b>
+  <%=h @contact.first_name %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.contact.last_name') -%>:</b>
+  <%=h @contact.last_name %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.contact.phone') -%>:</b>
+  <%=h @contact.phone %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.contact.created_at') -%>:</b>
+  <%=h @contact.created_at %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.contact.updated_at') -%>:</b>
+  <%=h @contact.updated_at %>
+</p>
+<p>
+  <%= link_to(t(:edit), edit_admin_contact_path(@contact)) %> | 
+  <%= link_to(t(:back), safe_location(admin_contacts_path)) %>
+</p>

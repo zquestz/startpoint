@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+full:
+  first_name: Some
+  last_name: Guy
+  email: someone@somewhere.com
+  phone: 999-999-9999
+
+partial:
+  first_name: 
+  last_name: 
+  email: me@you.com
+  phone: 

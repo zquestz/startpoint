@@ -45,6 +45,14 @@
   <%=h @image.description %>
 </p>
 <p>
+  <b><%= t('activerecord.attributes.image.created_at') -%>:</b>
+  <%=h @image.created_at %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.image.updated_at') -%>:</b>
+  <%=h @image.updated_at %>
+</p>
+<p>
   <%= link_to(t(:edit), edit_admin_image_path(@image)) -%> | 
   <%= link_to(t(:back), safe_location(admin_images_path)) -%>
 </p>

@@ -2,6 +2,7 @@
 # For more locale files go to http://github.com/svenfuchs/rails-i18n/tree/master/rails/locale
 en:
   # Sections/Navigation
+  section_contacts: 'Contacts'
   section_images: 'Images'
   section_pdfs: 'PDFs'
   section_galleries: 'Galleries'
@@ -44,6 +45,20 @@ en:
   image_multi_edit_error: 'You must select at least 1 image to edit.'
   image_multi_destroy_error: 'You must select at least 1 image to destroy.'
   add_names_descriptions: 'Add Names And Descriptions'
+  # Contacts
+  show_contact: 'Show Contact'
+  edit_contact: 'Edit Contact'
+  new_contact: 'New Contact'
+  listing_contacts: 'Listing Contacts'
+  no_contacts: 'There are no contacts.'
+  contact_created: 'Contact was successfully created.'
+  contact_updated: 'Contact was successfully updated.'
+  contact_deleted: 'Contact was successfully deleted.'
+  contact_not_deleted: 'Contact was not deleted.'
+  contacts_deleted: 'Contacts were successfully deleted.'
+  contacts_not_deleted: 'Contacts were not all deleted.'
+  contact_create_error: 'There was an error creating the Contact.'
+  contact_multi_destroy_error: 'You must select at least 1 contact to destroy.'
   # PDFs
   show_pdf: 'Show PDF'
   edit_pdf: 'Edit PDF'
@@ -207,6 +222,13 @@ en:
       image: Image
       pdf: PDF
     attributes:
+      contact:
+        email: 'Email'
+        phone: 'Phone'
+        first_name: 'First Name'
+        last_name: 'Last Name'
+        created_at: 'Created At'
+        updated_at: 'Updated At'
       image:
         user_id: 'Creator'
         name: 'Name'

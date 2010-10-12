@@ -33,6 +33,14 @@
   <b><%= t('activerecord.attributes.page.protected') -%>:</b>
   <%= @page.protected ? t(:option_yes) : t(:option_no) %>
 </p>
+<p>
+  <b><%= t('activerecord.attributes.page.created_at') -%>:</b>
+  <%=h @page.created_at %>
+</p>
+<p>
+  <b><%= t('activerecord.attributes.page.updated_at') -%>:</b>
+  <%=h @page.updated_at %>
+</p>
 <%- if @page.images.length > 0 -%>
 <h3><%= t(:section_images) %></h3>
 <%= render :partial => "admin/images/image_stub", :collection => @page.images %>

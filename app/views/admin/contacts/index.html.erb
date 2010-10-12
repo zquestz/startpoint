@@ -1,0 +1,24 @@
+<%- content_for :javascripts do -%>
+<%= javascript_include_tag(admin_contacts_path, :format => :js) %>
+<%- end -%>
+
+<h2><%= t(:listing_contacts) -%></h2>
+<p>
+  <%= link_to(t(:new_contact), new_admin_contact_path) %> | <%= link_to(t(:destroy_selected), '#', :id => 'delete_selected') -%>
+</p>
+<% if @contacts.blank? %>
+<p>
+  <%= t(:no_contacts) -%>
+</p>
+<% else %>
+<table class="admin_format">
+  <tr>
+    <th></th>
+    <th><%= sort_bar([:email, :created_at], '</th><th>') %></th>
+    <th><%= t(:options) -%></th>
+  </tr>
+  <%- reset_cycle -%>
+  <%= render @contacts %>
+</table>
+<%= will_paginate @contacts %>
+<%- end -%>

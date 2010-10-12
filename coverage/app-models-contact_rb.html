@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <title>app/middleware/flash_session_cookie_middleware.rb</title>
+    <title>app/models/contact.rb</title>
     <link href="screen.css" media="all" rel="stylesheet" type="text/css" />
     <link href="print.css" media="print" rel="stylesheet" type="text/css" />
     
@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>Startpoint C0 Coverage Information - RCov</h1>
-    <h2>app/middleware/flash_session_cookie_middleware.rb</h2>
+    <h2>app/models/contact.rb</h2>
 
     
 
@@ -27,18 +27,18 @@
         </thead>
         <tbody>
           <tr>
-            <td class="left_align"><a href="app-middleware-flash_session_cookie_middleware_rb.html">app/middleware/flash_session_cookie_middleware.rb</a></td>
-            <td class='right_align'><tt>19</tt></td>
-            <td class='right_align'><tt>16</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>47.37%</tt></div>
+            <td class="left_align"><a href="app-models-contact_rb.html">app/models/contact.rb</a></td>
+            <td class='right_align'><tt>18</tt></td>
+            <td class='right_align'><tt>11</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:47px"></div>
-            <div class="uncovered" style="width:53px"></div>
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>43.75%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:44px"></div>
-            <div class="uncovered" style="width:56px"></div>
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -57,115 +57,109 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line1">1</a> require 'rack/utils'</pre></td>
+            <td><pre><a name="line1">1</a> class Contact &lt; ActiveRecord::Base</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line2">2</a>   default_scope :order =&gt; 'contacts.email ASC'</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line2">2</a> </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line3">3</a> class FlashSessionCookieMiddleware</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line4">4</a>   def initialize(app, session_key = '_session_id')</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line5">5</a>     @app = app</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line6">6</a>     @session_key = session_key</pre></td>
+            <td><pre><a name="line3">3</a>   </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line7">7</a>   end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line8">8</a> </pre></td>
+            <td><pre><a name="line4">4</a>   # Make sure emails are unique and included</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line9">9</a>   def call(env)</pre></td>
+            <td><pre><a name="line5">5</a>   validates_uniqueness_of :email</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line10">10</a>     # Small hack to make sure sessions work for Flash objects</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line6">6</a>   validates_format_of :email, :with =&gt; Authlogic::Regex.email</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line11">11</a>     if env['HTTP_USER_AGENT'] =~ /^(Adobe|Shockwave) Flash/</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line7">7</a>   </pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line12">12</a>       req = Rack::Request.new(env)</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line8">8</a>   # Slug the url.</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line13">13</a>       unless req.params[@session_key].nil?</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line9">9</a>   def to_param</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line14">14</a>         env['HTTP_COOKIE'] = &quot;#{@session_key}=#{req.params[@session_key]}&quot;.freeze</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line10">10</a>     &quot;#{id}-#{email.parameterize}&quot;</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line15">15</a>       end</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line11">11</a>   end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line16">16</a>     end</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line12">12</a>   </pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line17">17</a>     @app.call(env)</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line13">13</a>   # For pagination system</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line18">18</a>   end</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line14">14</a>   def self.per_page</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line19">19</a> end</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line15">15</a>     20</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line16">16</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line17">17</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line18">18</a> end</pre></td>
           </tr>
         
       </tbody>
