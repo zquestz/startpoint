@@ -86,9 +86,10 @@
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000043">activation_instructions</a>&nbsp;&nbsp;
-      <a href="#M000042">password_reset_instructions</a>&nbsp;&nbsp;
-      <a href="#M000044">welcome</a>&nbsp;&nbsp;
+      <a href="#M000038">activation_instructions</a>&nbsp;&nbsp;
+      <a href="#M000040">contact_email</a>&nbsp;&nbsp;
+      <a href="#M000037">password_reset_instructions</a>&nbsp;&nbsp;
+      <a href="#M000039">welcome</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -110,85 +111,113 @@
     <div id="methods">
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000043" class="method-detail">
-        <a name="M000043"></a>
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
 
         <div class="method-heading">
-          <a href="#M000043" class="method-signature">
+          <a href="#M000038" class="method-signature">
           <span class="method-name">activation_instructions</span><span class="method-args">(user)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000043-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000043-source">
+            onclick="toggleCode('M000038-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000038-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/notifier.rb, line 11</span>
-11:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activation_instructions</span>(<span class="ruby-identifier">user</span>)
-12:     <span class="ruby-identifier">subject</span>       <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">app_name</span> <span class="ruby-operator">+</span> <span class="ruby-value str">' - Activation Instructions'</span>
-13:     <span class="ruby-identifier">from</span>          <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">mailer_email</span>
-14:     <span class="ruby-identifier">recipients</span>    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>
-15:     <span class="ruby-identifier">content_type</span> <span class="ruby-value str">'text/html'</span>
-16:     <span class="ruby-identifier">sent_on</span>       <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
-17:     <span class="ruby-identifier">body</span>          <span class="ruby-identifier">:account_activation_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">activate_url</span>(<span class="ruby-identifier">user</span>.<span class="ruby-identifier">perishable_token</span>, <span class="ruby-identifier">:host</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">hostname</span>)
-18:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/notifier.rb, line 13</span>
+13:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activation_instructions</span>(<span class="ruby-identifier">user</span>)
+14:     <span class="ruby-identifier">subject</span>       <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">app_name</span> <span class="ruby-operator">+</span> <span class="ruby-value str">' - '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">t</span>(<span class="ruby-identifier">:activation_instructions</span>)
+15:     <span class="ruby-identifier">from</span>          <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">mailer_email</span>
+16:     <span class="ruby-identifier">recipients</span>    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>
+17:     <span class="ruby-identifier">content_type</span> <span class="ruby-value str">'text/html'</span>
+18:     <span class="ruby-identifier">sent_on</span>       <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+19:     <span class="ruby-identifier">body</span>          <span class="ruby-identifier">:account_activation_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">activate_url</span>(<span class="ruby-identifier">user</span>.<span class="ruby-identifier">perishable_token</span>, <span class="ruby-identifier">:host</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">hostname</span>)
+20:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000042" class="method-detail">
-        <a name="M000042"></a>
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
 
         <div class="method-heading">
-          <a href="#M000042" class="method-signature">
+          <a href="#M000040" class="method-signature">
+          <span class="method-name">contact_email</span><span class="method-args">(contact)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000040-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000040-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/notifier.rb, line 31</span>
+31:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">contact_email</span>(<span class="ruby-identifier">contact</span>)
+32:     <span class="ruby-identifier">subject</span>       <span class="ruby-identifier">t</span>(<span class="ruby-identifier">:contact_message_subject</span>) <span class="ruby-operator">+</span> <span class="ruby-node">&quot; - #{Setting.app_name}&quot;</span>
+33:     <span class="ruby-identifier">from</span>          <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">mailer_email</span>
+34:     <span class="ruby-identifier">recipients</span>    <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">support_email</span>
+35:     <span class="ruby-identifier">content_type</span> <span class="ruby-value str">'text/html'</span>
+36:     <span class="ruby-identifier">sent_on</span>       <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+37:     <span class="ruby-identifier">body</span>          <span class="ruby-identifier">:contact</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">contact</span>
+38:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
+
+        <div class="method-heading">
+          <a href="#M000037" class="method-signature">
           <span class="method-name">password_reset_instructions</span><span class="method-args">(user)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000042-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000042-source">
+            onclick="toggleCode('M000037-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000037-source">
 <pre>
-   <span class="ruby-comment cmt"># File app/models/notifier.rb, line 2</span>
-2:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">password_reset_instructions</span>(<span class="ruby-identifier">user</span>)
-3:     <span class="ruby-identifier">subject</span>      <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">app_name</span> <span class="ruby-operator">+</span> <span class="ruby-value str">' - Password Reset Instructions'</span>
-4:     <span class="ruby-identifier">from</span>         <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">mailer_email</span>
-5:     <span class="ruby-identifier">recipients</span>   <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>
-6:     <span class="ruby-identifier">content_type</span> <span class="ruby-value str">'text/html'</span>
-7:     <span class="ruby-identifier">sent_on</span>      <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
-8:     <span class="ruby-identifier">body</span>         <span class="ruby-identifier">:edit_password_reset_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">edit_password_reset_url</span>(<span class="ruby-identifier">user</span>.<span class="ruby-identifier">perishable_token</span>, <span class="ruby-identifier">:host</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">hostname</span>)
-9:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/notifier.rb, line 4</span>
+ 4:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">password_reset_instructions</span>(<span class="ruby-identifier">user</span>)
+ 5:     <span class="ruby-identifier">subject</span>      <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">app_name</span> <span class="ruby-operator">+</span> <span class="ruby-value str">' - '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">t</span>(<span class="ruby-identifier">:password_reset_instructions</span>)
+ 6:     <span class="ruby-identifier">from</span>         <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">mailer_email</span>
+ 7:     <span class="ruby-identifier">recipients</span>   <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>
+ 8:     <span class="ruby-identifier">content_type</span> <span class="ruby-value str">'text/html'</span>
+ 9:     <span class="ruby-identifier">sent_on</span>      <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+10:     <span class="ruby-identifier">body</span>         <span class="ruby-identifier">:edit_password_reset_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">edit_password_reset_url</span>(<span class="ruby-identifier">user</span>.<span class="ruby-identifier">perishable_token</span>, <span class="ruby-identifier">:host</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">hostname</span>)
+11:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000044" class="method-detail">
-        <a name="M000044"></a>
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
 
         <div class="method-heading">
-          <a href="#M000044" class="method-signature">
+          <a href="#M000039" class="method-signature">
           <span class="method-name">welcome</span><span class="method-args">(user)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000044-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000044-source">
+            onclick="toggleCode('M000039-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000039-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/notifier.rb, line 20</span>
-20:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">welcome</span>(<span class="ruby-identifier">user</span>)
-21:     <span class="ruby-identifier">subject</span>       <span class="ruby-node">&quot;Welcome to #{Setting.app_name}&quot;</span>
-22:     <span class="ruby-identifier">from</span>          <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">mailer_email</span>
-23:     <span class="ruby-identifier">recipients</span>    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>
-24:     <span class="ruby-identifier">content_type</span> <span class="ruby-value str">'text/html'</span>
-25:     <span class="ruby-identifier">sent_on</span>       <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
-26:     <span class="ruby-identifier">body</span>          <span class="ruby-identifier">:root_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">root_url</span>(<span class="ruby-identifier">:host</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">hostname</span>)
-27:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/notifier.rb, line 22</span>
+22:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">welcome</span>(<span class="ruby-identifier">user</span>)
+23:     <span class="ruby-identifier">subject</span>       <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">translate</span>(<span class="ruby-identifier">:welcome_email_subject</span>, <span class="ruby-identifier">:app_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">app_name</span>)
+24:     <span class="ruby-identifier">from</span>          <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">mailer_email</span>
+25:     <span class="ruby-identifier">recipients</span>    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>
+26:     <span class="ruby-identifier">content_type</span> <span class="ruby-value str">'text/html'</span>
+27:     <span class="ruby-identifier">sent_on</span>       <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+28:     <span class="ruby-identifier">body</span>          <span class="ruby-identifier">:root_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">root_url</span>(<span class="ruby-identifier">:host</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">hostname</span>)
+29:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>

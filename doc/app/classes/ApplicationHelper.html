@@ -87,11 +87,13 @@ application.
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000048">display_email</a>&nbsp;&nbsp;
-      <a href="#M000047">display_website</a>&nbsp;&nbsp;
-      <a href="#M000046">render_flash_messages</a>&nbsp;&nbsp;
-      <a href="#M000050">select_tag</a>&nbsp;&nbsp;
-      <a href="#M000049">sort_calc</a>&nbsp;&nbsp;
+      <a href="#M000116">display_email</a>&nbsp;&nbsp;
+      <a href="#M000114">display_image</a>&nbsp;&nbsp;
+      <a href="#M000115">display_website</a>&nbsp;&nbsp;
+      <a href="#M000113">render_flash_messages</a>&nbsp;&nbsp;
+      <a href="#M000119">select_tag</a>&nbsp;&nbsp;
+      <a href="#M000118">sort_bar</a>&nbsp;&nbsp;
+      <a href="#M000117">sort_calc</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -133,11 +135,11 @@ application.
     <div id="methods">
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000048" class="method-detail">
-        <a name="M000048"></a>
+      <div id="method-M000116" class="method-detail">
+        <a name="M000116"></a>
 
         <div class="method-heading">
-          <a href="#M000048" class="method-signature">
+          <a href="#M000116" class="method-signature">
           <span class="method-name">display_email</span><span class="method-args">(email, options = {})</span>
           </a>
         </div>
@@ -145,26 +147,64 @@ application.
         <div class="method-description">
           <p>
 Quick way to link an email address. Works just like <a
-href="ApplicationHelper.html#M000047">display_website</a>
+href="ApplicationHelper.html#M000115">display_website</a>
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000048-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000048-source">
+            onclick="toggleCode('M000116-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000116-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 16</span>
-16:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display_email</span>(<span class="ruby-identifier">email</span>, <span class="ruby-identifier">options</span> = {})
-17:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">email</span>, <span class="ruby-value str">'mailto:'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">email</span>, <span class="ruby-identifier">options</span>)
-18:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 33</span>
+33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display_email</span>(<span class="ruby-identifier">email</span>, <span class="ruby-identifier">options</span> = {})
+34:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">email</span>, <span class="ruby-value str">'mailto:'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">email</span>, <span class="ruby-identifier">options</span>)
+35:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000047" class="method-detail">
-        <a name="M000047"></a>
+      <div id="method-M000114" class="method-detail">
+        <a name="M000114"></a>
 
         <div class="method-heading">
-          <a href="#M000047" class="method-signature">
+          <a href="#M000114" class="method-signature">
+          <span class="method-name">display_image</span><span class="method-args">(page, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Display cached images for pages. You can send a size (symbol or string)
+with an id or name. Examples &#8212; <a
+href="ApplicationHelper.html#M000114">display_image</a>(@page, {:id =&gt;
+1, :size =&gt; :large}) <a
+href="ApplicationHelper.html#M000114">display_image</a>(@page, {:name =&gt;
+&#8216;name&#8217;}) <a
+href="ApplicationHelper.html#M000114">display_image</a>(@page, {:name =&gt;
+&#8216;name&#8217;, :size =&gt; &#8216;icon&#8217;})
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000114-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000114-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 18</span>
+18:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display_image</span>(<span class="ruby-identifier">page</span>, <span class="ruby-identifier">options</span> = {})
+19:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:id</span>].<span class="ruby-identifier">present?</span>
+20:       <span class="ruby-identifier">image</span> = <span class="ruby-identifier">page</span>.<span class="ruby-identifier">images</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">image</span><span class="ruby-operator">|</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:id</span>]}.<span class="ruby-identifier">first</span>
+21:     <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:name</span>].<span class="ruby-identifier">present?</span>
+22:       <span class="ruby-identifier">image</span> = <span class="ruby-identifier">page</span>.<span class="ruby-identifier">images</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">image</span><span class="ruby-operator">|</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:name</span>]}.<span class="ruby-identifier">first</span>
+23:     <span class="ruby-keyword kw">end</span>
+24:     <span class="ruby-identifier">image</span> <span class="ruby-value">? </span><span class="ruby-identifier">image_tag</span>(<span class="ruby-identifier">image</span>.<span class="ruby-identifier">file</span>.<span class="ruby-identifier">url</span>((<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:size</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:size</span>].<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">:original</span> ))) <span class="ruby-operator">:</span> <span class="ruby-value str">''</span>
+25:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000115" class="method-detail">
+        <a name="M000115"></a>
+
+        <div class="method-heading">
+          <a href="#M000115" class="method-signature">
           <span class="method-name">display_website</span><span class="method-args">(url, options = {})</span>
           </a>
         </div>
@@ -174,23 +214,23 @@ href="ApplicationHelper.html#M000047">display_website</a>
 Quick way to link a url. Pass options to add classes/etc.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000047-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000047-source">
+            onclick="toggleCode('M000115-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000115-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 11</span>
-11:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display_website</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span> = {})
-12:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span>)
-13:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 28</span>
+28:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">display_website</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span> = {})
+29:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span>)
+30:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000046" class="method-detail">
-        <a name="M000046"></a>
+      <div id="method-M000113" class="method-detail">
+        <a name="M000113"></a>
 
         <div class="method-heading">
-          <a href="#M000046" class="method-signature">
+          <a href="#M000113" class="method-signature">
           <span class="method-name">render_flash_messages</span><span class="method-args">()</span>
           </a>
         </div>
@@ -200,59 +240,111 @@ Quick way to link a url. Pass options to add classes/etc.
 Render&#8216;s flash notices and errors
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000046-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000046-source">
+            onclick="toggleCode('M000113-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000113-source">
 <pre>
-   <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 4</span>
-4:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render_flash_messages</span>
-5:     <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
-6:       <span class="ruby-keyword kw">return</span> ([<span class="ruby-identifier">:notice</span>, <span class="ruby-identifier">:error</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-identifier">:div</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>)
-7:     <span class="ruby-keyword kw">end</span>
-8:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 4</span>
+ 4:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">render_flash_messages</span>
+ 5:     <span class="ruby-identifier">output</span> = <span class="ruby-value str">''</span>
+ 6:     <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+ 7:       <span class="ruby-identifier">output</span> = ([<span class="ruby-identifier">:notice</span>, <span class="ruby-identifier">:error</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-identifier">:div</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>)
+ 8:     <span class="ruby-keyword kw">end</span>
+ 9:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">output</span>
+10:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000050" class="method-detail">
-        <a name="M000050"></a>
+      <div id="method-M000119" class="method-detail">
+        <a name="M000119"></a>
 
         <div class="method-heading">
-          <a href="#M000050" class="method-signature">
+          <a href="#M000119" class="method-signature">
           <span class="method-name">select_tag</span><span class="method-args">(name, select_options, options = {}, html_options = {})</span>
           </a>
         </div>
       
         <div class="method-description">
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000050-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000050-source">
+            onclick="toggleCode('M000119-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000119-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 32</span>
-32:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">select_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">select_options</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-identifier">html_options</span> = {})
-33:     <span class="ruby-comment cmt"># remove the options that select_tag doesn't currently recognise</span>
-34:     <span class="ruby-identifier">include_blank</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:include_blank</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:include_blank</span>)
-35:     <span class="ruby-identifier">prompt</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:prompt</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:prompt</span>)
-36:     
-37:     <span class="ruby-comment cmt"># if we didn't pass either - continue on as before</span>
-38:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">orig_select_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">select_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">html_options</span>)) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">include_blank</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">prompt</span>
-39: 
-40:     <span class="ruby-comment cmt"># otherwise, add them in ourselves</span>
-41:     <span class="ruby-identifier">prompt_option</span>  = <span class="ruby-value str">'&lt;option value=&quot;&quot;&gt;'</span> <span class="ruby-comment cmt"># to make sure it shows up as nil</span>
-42:     <span class="ruby-identifier">prompt_option</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">prompt</span> <span class="ruby-value">? </span><span class="ruby-identifier">prompt</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">'&lt;/option&gt;'</span>
-43:     <span class="ruby-identifier">new_select_options</span> = <span class="ruby-identifier">prompt_option</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">select_options</span>
-44:     <span class="ruby-identifier">orig_select_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">new_select_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">html_options</span>))
-45:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 78</span>
+78:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">select_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">select_options</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-identifier">html_options</span> = {})
+79:     <span class="ruby-comment cmt"># remove the options that select_tag doesn't currently recognise</span>
+80:     <span class="ruby-identifier">include_blank</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:include_blank</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:include_blank</span>)
+81:     <span class="ruby-identifier">prompt</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:prompt</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:prompt</span>)
+82:     
+83:     <span class="ruby-comment cmt"># if we didn't pass either - continue on as before</span>
+84:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">orig_select_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">select_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">html_options</span>)) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">include_blank</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">prompt</span>
+85: 
+86:     <span class="ruby-comment cmt"># otherwise, add them in ourselves</span>
+87:     <span class="ruby-identifier">prompt_option</span>  = <span class="ruby-value str">'&lt;option value=&quot;&quot;&gt;'</span> <span class="ruby-comment cmt"># to make sure it shows up as nil</span>
+88:     <span class="ruby-identifier">prompt_option</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">prompt</span> <span class="ruby-value">? </span><span class="ruby-identifier">prompt</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-value str">''</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">'&lt;/option&gt;'</span>
+89:     <span class="ruby-identifier">new_select_options</span> = <span class="ruby-identifier">prompt_option</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">select_options</span>
+90:     <span class="ruby-identifier">orig_select_tag</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">new_select_options</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">html_options</span>))
+91:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000049" class="method-detail">
-        <a name="M000049"></a>
+      <div id="method-M000118" class="method-detail">
+        <a name="M000118"></a>
 
         <div class="method-heading">
-          <a href="#M000049" class="method-signature">
+          <a href="#M000118" class="method-signature">
+          <span class="method-name">sort_bar</span><span class="method-args">(items, joinval = ' | ')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Generate small toolbar of sort links This is fully localized, hence the
+conditions.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000118-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000118-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 46</span>
+46:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sort_bar</span>(<span class="ruby-identifier">items</span>, <span class="ruby-identifier">joinval</span> = <span class="ruby-value str">' | '</span>)
+47:     <span class="ruby-constant">Array</span>(<span class="ruby-identifier">items</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Array</span>
+48:     <span class="ruby-identifier">sort_links</span> = []
+49:     <span class="ruby-keyword kw">if</span> [<span class="ruby-value str">'admin/users'</span>, <span class="ruby-value str">'users'</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_name</span>)
+50:       <span class="ruby-identifier">items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+51:         <span class="ruby-identifier">sort_links</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">sort_calc</span>(<span class="ruby-identifier">t</span>(<span class="ruby-node">&quot;activerecord.attributes.user.#{c}&quot;</span>), <span class="ruby-identifier">c</span>))
+52:       <span class="ruby-keyword kw">end</span>
+53:     <span class="ruby-keyword kw">elsif</span> [<span class="ruby-value str">'pages'</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_name</span>)
+54:       <span class="ruby-identifier">items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+55:         <span class="ruby-identifier">sort_links</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">sort_calc</span>(<span class="ruby-identifier">t</span>(<span class="ruby-node">&quot;activerecord.attributes.page.#{c}&quot;</span>), <span class="ruby-identifier">c</span>))
+56:       <span class="ruby-keyword kw">end</span>
+57:     <span class="ruby-keyword kw">elsif</span> [<span class="ruby-value str">'galleries'</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_name</span>)
+58:       <span class="ruby-identifier">items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+59:         <span class="ruby-identifier">sort_links</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">sort_calc</span>(<span class="ruby-identifier">t</span>(<span class="ruby-node">&quot;activerecord.attributes.gallery.#{c}&quot;</span>), <span class="ruby-identifier">c</span>))
+60:       <span class="ruby-keyword kw">end</span>
+61:     <span class="ruby-keyword kw">elsif</span> [<span class="ruby-value str">'images'</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">controller</span>.<span class="ruby-identifier">controller_name</span>)
+62:       <span class="ruby-identifier">items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+63:         <span class="ruby-identifier">sort_links</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">sort_calc</span>(<span class="ruby-identifier">t</span>(<span class="ruby-node">&quot;activerecord.attributes.image.#{c}&quot;</span>), <span class="ruby-identifier">c</span>))
+64:       <span class="ruby-keyword kw">end</span>
+65:     <span class="ruby-keyword kw">else</span>
+66:       <span class="ruby-identifier">items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+67:         <span class="ruby-identifier">sort_links</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">sort_calc</span>(<span class="ruby-identifier">c</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">humanize</span>, <span class="ruby-identifier">c</span>))
+68:       <span class="ruby-keyword kw">end</span>
+69:     <span class="ruby-keyword kw">end</span>
+70:     <span class="ruby-identifier">sort_links</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">joinval</span>)
+71:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000117" class="method-detail">
+        <a name="M000117"></a>
+
+        <div class="method-heading">
+          <a href="#M000117" class="method-signature">
           <span class="method-name">sort_calc</span><span class="method-args">(name, column, options = {})</span>
           </a>
         </div>
@@ -262,15 +354,15 @@ Render&#8216;s flash notices and errors
 This calculates which sort to use and generates a link for you.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000049-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000049-source">
+            onclick="toggleCode('M000117-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000117-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 21</span>
-21:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sort_calc</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column</span>, <span class="ruby-identifier">options</span> = {})
-22:     <span class="ruby-identifier">condition</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:unless</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:unless</span>)
-23:     <span class="ruby-identifier">sort_direction</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:d</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'ASC'</span> <span class="ruby-operator">?</span> <span class="ruby-value str">'DESC'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'ASC'</span>
-24:     <span class="ruby-identifier">link_to_unless</span> <span class="ruby-identifier">condition</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">merge</span>( {<span class="ruby-identifier">:c</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">column</span>, <span class="ruby-identifier">:d</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sort_direction</span>} )
-25:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/helpers/application_helper.rb, line 38</span>
+38:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sort_calc</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">column</span>, <span class="ruby-identifier">options</span> = {})
+39:     <span class="ruby-identifier">condition</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:unless</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:unless</span>)
+40:     <span class="ruby-identifier">sort_direction</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:d</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'ASC'</span> <span class="ruby-operator">?</span> <span class="ruby-value str">'DESC'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'ASC'</span>
+41:     <span class="ruby-identifier">link_to_unless</span> <span class="ruby-identifier">condition</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">merge</span>( {<span class="ruby-identifier">:c</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">column</span>, <span class="ruby-identifier">:d</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sort_direction</span>} )
+42:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>

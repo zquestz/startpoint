@@ -86,18 +86,21 @@
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000012">activate</a>&nbsp;&nbsp;
-      <a href="#M000011">activate!</a>&nbsp;&nbsp;
-      <a href="#M000015">admin_users_count</a>&nbsp;&nbsp;
-      <a href="#M000018">deliver_activation_instructions!</a>&nbsp;&nbsp;
-      <a href="#M000017">deliver_password_reset_instructions!</a>&nbsp;&nbsp;
-      <a href="#M000019">deliver_welcome!</a>&nbsp;&nbsp;
-      <a href="#M000010">demote_admin</a>&nbsp;&nbsp;
-      <a href="#M000013">per_page</a>&nbsp;&nbsp;
-      <a href="#M000014">regular_users_count</a>&nbsp;&nbsp;
-      <a href="#M000008">to_param</a>&nbsp;&nbsp;
-      <a href="#M000016">total_users_count</a>&nbsp;&nbsp;
-      <a href="#M000009">upgrade_to_admin</a>&nbsp;&nbsp;
+      <a href="#M000009">activate</a>&nbsp;&nbsp;
+      <a href="#M000010">activate!</a>&nbsp;&nbsp;
+      <a href="#M000013">admin_users_count</a>&nbsp;&nbsp;
+      <a href="#M000016">deliver_activation_instructions!</a>&nbsp;&nbsp;
+      <a href="#M000015">deliver_password_reset_instructions!</a>&nbsp;&nbsp;
+      <a href="#M000017">deliver_welcome!</a>&nbsp;&nbsp;
+      <a href="#M000007">demote_admin</a>&nbsp;&nbsp;
+      <a href="#M000008">demote_admin!</a>&nbsp;&nbsp;
+      <a href="#M000018">find_by_login_or_email</a>&nbsp;&nbsp;
+      <a href="#M000011">per_page</a>&nbsp;&nbsp;
+      <a href="#M000012">regular_users_count</a>&nbsp;&nbsp;
+      <a href="#M000004">to_param</a>&nbsp;&nbsp;
+      <a href="#M000014">total_users_count</a>&nbsp;&nbsp;
+      <a href="#M000005">upgrade_to_admin</a>&nbsp;&nbsp;
+      <a href="#M000006">upgrade_to_admin!</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -119,11 +122,11 @@
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000015" class="method-detail">
-        <a name="M000015"></a>
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
 
         <div class="method-heading">
-          <a href="#M000015" class="method-signature">
+          <a href="#M000013" class="method-signature">
           <span class="method-name">admin_users_count</span><span class="method-args">()</span>
           </a>
         </div>
@@ -133,158 +136,19 @@
 Count number of admin users
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000015-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 77</span>
-77:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">admin_users_count</span>
-78:     <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">'admin_user_count'</span>) <span class="ruby-keyword kw">do</span>
-79:       <span class="ruby-constant">User</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'is_admin = ?'</span>, <span class="ruby-keyword kw">true</span>])
-80:     <span class="ruby-keyword kw">end</span>
-81:   <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-        </div>
-      </div>
-
-      <div id="method-M000013" class="method-detail">
-        <a name="M000013"></a>
-
-        <div class="method-heading">
-          <a href="#M000013" class="method-signature">
-          <span class="method-name">per_page</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-For pagination system
-</p>
-          <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000013-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 65</span>
-65:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">per_page</span>
-66:     <span class="ruby-value">20</span>
-67:   <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-        </div>
-      </div>
-
-      <div id="method-M000014" class="method-detail">
-        <a name="M000014"></a>
-
-        <div class="method-heading">
-          <a href="#M000014" class="method-signature">
-          <span class="method-name">regular_users_count</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Count number of regular users
-</p>
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000014-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 70</span>
-70:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">regular_users_count</span>
-71:     <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">'regular_user_count'</span>) <span class="ruby-keyword kw">do</span>
-72:       <span class="ruby-constant">User</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'is_admin = ?'</span>, <span class="ruby-keyword kw">false</span>])
-73:     <span class="ruby-keyword kw">end</span>
-74:   <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-        </div>
-      </div>
-
-      <div id="method-M000016" class="method-detail">
-        <a name="M000016"></a>
-
-        <div class="method-heading">
-          <a href="#M000016" class="method-signature">
-          <span class="method-name">total_users_count</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Count number of total users This reads from cached data and is quite quick.
-</p>
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000016-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 85</span>
-85:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">total_users_count</span>
-86:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">regular_users_count</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">admin_users_count</span>
-87:   <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="section-bar">Public Instance methods</h3>
-
-      <div id="method-M000012" class="method-detail">
-        <a name="M000012"></a>
-
-        <div class="method-heading">
-          <a href="#M000012" class="method-signature">
-          <span class="method-name">activate</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Activate user
-</p>
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000012-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 56</span>
-56:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activate</span>
-57:     <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">active?</span>
-58:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">active</span> = <span class="ruby-keyword kw">true</span>
-59:     <span class="ruby-keyword kw">else</span>
-60:       <span class="ruby-keyword kw">true</span>
-61:     <span class="ruby-keyword kw">end</span>
-62:   <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-        </div>
-      </div>
-
-      <div id="method-M000011" class="method-detail">
-        <a name="M000011"></a>
-
-        <div class="method-heading">
-          <a href="#M000011" class="method-signature">
-          <span class="method-name">activate!</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Activate user and save it
-</p>
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000011-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 46</span>
-46:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activate!</span>
-47:     <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">active?</span>
-48:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">active</span> = <span class="ruby-keyword kw">true</span>
-49:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save</span>
-50:     <span class="ruby-keyword kw">else</span>
-51:       <span class="ruby-keyword kw">true</span>
-52:     <span class="ruby-keyword kw">end</span>
-53:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 97</span>
+ 97:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">admin_users_count</span>
+ 98:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">cache_classes</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">true</span>
+ 99:       <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">'admin_user_count'</span>) <span class="ruby-keyword kw">do</span>
+100:         <span class="ruby-constant">User</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'is_admin = ?'</span>, <span class="ruby-keyword kw">true</span>])
+101:       <span class="ruby-keyword kw">end</span>
+102:     <span class="ruby-keyword kw">else</span>
+103:       <span class="ruby-constant">User</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'is_admin = ?'</span>, <span class="ruby-keyword kw">true</span>])
+104:     <span class="ruby-keyword kw">end</span>
+105:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -295,77 +159,138 @@ Activate user and save it
 
         <div class="method-heading">
           <a href="#M000018" class="method-signature">
-          <span class="method-name">deliver_activation_instructions!</span><span class="method-args">()</span>
+          <span class="method-name">find_by_login_or_email</span><span class="method-args">(login)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Send activation instructions
+Allow logins via email or login
 </p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000018-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 96</span>
-96:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deliver_activation_instructions!</span>
-97:     <span class="ruby-identifier">reset_perishable_token!</span>
-98:     <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">deliver_activation_instructions</span>(<span class="ruby-keyword kw">self</span>)
-99:   <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 132</span>
+132:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">find_by_login_or_email</span>(<span class="ruby-identifier">login</span>)
+133:     <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_login</span>(<span class="ruby-identifier">login</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_email</span>(<span class="ruby-identifier">login</span>)
+134:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000017" class="method-detail">
-        <a name="M000017"></a>
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
 
         <div class="method-heading">
-          <a href="#M000017" class="method-signature">
-          <span class="method-name">deliver_password_reset_instructions!</span><span class="method-args">()</span>
+          <a href="#M000011" class="method-signature">
+          <span class="method-name">per_page</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Send password reset instructions
+For pagination system
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000017-source">
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 90</span>
-90:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deliver_password_reset_instructions!</span>
-91:     <span class="ruby-identifier">reset_perishable_token!</span>
-92:     <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">deliver_password_reset_instructions</span>(<span class="ruby-keyword kw">self</span>)
-93:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 81</span>
+81:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">per_page</span>
+82:     <span class="ruby-value">20</span>
+83:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000019" class="method-detail">
-        <a name="M000019"></a>
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
 
         <div class="method-heading">
-          <a href="#M000019" class="method-signature">
-          <span class="method-name">deliver_welcome!</span><span class="method-args">()</span>
+          <a href="#M000012" class="method-signature">
+          <span class="method-name">regular_users_count</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Send welcome message
+Count number of regular users
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000019-source">
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
 <pre>
-     <span class="ruby-comment cmt"># File app/models/user.rb, line 102</span>
-102:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deliver_welcome!</span>
-103:     <span class="ruby-identifier">reset_perishable_token!</span>
-104:     <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">deliver_welcome</span>(<span class="ruby-keyword kw">self</span>)
-105:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 86</span>
+86:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">regular_users_count</span>
+87:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">cache_classes</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">true</span>
+88:       <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">'regular_user_count'</span>) <span class="ruby-keyword kw">do</span>
+89:         <span class="ruby-constant">User</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'is_admin = ?'</span>, <span class="ruby-keyword kw">false</span>])
+90:       <span class="ruby-keyword kw">end</span>
+91:     <span class="ruby-keyword kw">else</span>
+92:       <span class="ruby-constant">User</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'is_admin = ?'</span>, <span class="ruby-keyword kw">false</span>])
+93:     <span class="ruby-keyword kw">end</span>
+94:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="#M000014" class="method-signature">
+          <span class="method-name">total_users_count</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Count number of total users This reads from cached data and is quite quick.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000014-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 109</span>
+109:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">total_users_count</span>
+110:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">regular_users_count</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">admin_users_count</span>
+111:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="#M000009" class="method-signature">
+          <span class="method-name">activate</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Activate user
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 62</span>
+62:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activate</span>
+63:     <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">active?</span>
+64:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">active</span> = <span class="ruby-keyword kw">true</span>
+65:     <span class="ruby-keyword kw">else</span>
+66:       <span class="ruby-keyword kw">true</span>
+67:     <span class="ruby-keyword kw">end</span>
+68:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -376,6 +301,118 @@ Send welcome message
 
         <div class="method-heading">
           <a href="#M000010" class="method-signature">
+          <span class="method-name">activate!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Activate user and save
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 71</span>
+71:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activate!</span>
+72:     <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">active?</span>
+73:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">active</span> = <span class="ruby-keyword kw">true</span>
+74:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save</span>
+75:     <span class="ruby-keyword kw">else</span>
+76:       <span class="ruby-keyword kw">true</span>
+77:     <span class="ruby-keyword kw">end</span>
+78:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="#M000016" class="method-signature">
+          <span class="method-name">deliver_activation_instructions!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Send activation instructions
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000016-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 120</span>
+120:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deliver_activation_instructions!</span>
+121:     <span class="ruby-identifier">reset_perishable_token!</span>
+122:     <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">send_later</span> <span class="ruby-identifier">:deliver_activation_instructions</span>, <span class="ruby-keyword kw">self</span>
+123:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="#M000015" class="method-signature">
+          <span class="method-name">deliver_password_reset_instructions!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Send password reset instructions
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000015-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 114</span>
+114:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deliver_password_reset_instructions!</span>
+115:     <span class="ruby-identifier">reset_perishable_token!</span>
+116:     <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">send_later</span> <span class="ruby-identifier">:deliver_password_reset_instructions</span>, <span class="ruby-keyword kw">self</span>
+117:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="#M000017" class="method-signature">
+          <span class="method-name">deliver_welcome!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Send welcome message
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000017-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/models/user.rb, line 126</span>
+126:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deliver_welcome!</span>
+127:     <span class="ruby-identifier">reset_perishable_token!</span>
+128:     <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">send_later</span> <span class="ruby-identifier">:deliver_welcome</span>, <span class="ruby-keyword kw">self</span>
+129:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="#M000007" class="method-signature">
           <span class="method-name">demote_admin</span><span class="method-args">()</span>
           </a>
         </div>
@@ -385,16 +422,15 @@ Send welcome message
 Demote admin
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000010-source">
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 38</span>
-38:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">demote_admin</span>
-39:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-constant">User</span>.<span class="ruby-identifier">admin_users_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>)
-40:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span> = <span class="ruby-keyword kw">false</span>
-41:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save</span>
-42:     <span class="ruby-keyword kw">end</span>
-43:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 47</span>
+47:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">demote_admin</span>
+48:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-constant">User</span>.<span class="ruby-identifier">admin_users_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>)
+49:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span> = <span class="ruby-keyword kw">false</span>
+50:     <span class="ruby-keyword kw">end</span>
+51:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -405,6 +441,35 @@ Demote admin
 
         <div class="method-heading">
           <a href="#M000008" class="method-signature">
+          <span class="method-name">demote_admin!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Demote admin and save
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 54</span>
+54:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">demote_admin!</span>
+55:     <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-constant">User</span>.<span class="ruby-identifier">admin_users_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>)
+56:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span> = <span class="ruby-keyword kw">false</span>
+57:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save</span>
+58:     <span class="ruby-keyword kw">end</span>
+59:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="#M000004" class="method-signature">
           <span class="method-name">to_param</span><span class="method-args">()</span>
           </a>
         </div>
@@ -414,42 +479,70 @@ Demote admin
 Slug the url.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000008-source">
+            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000004-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 25</span>
-25:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_param</span>
-26:     <span class="ruby-node">&quot;#{id}-#{login.parameterize}&quot;</span>
-27:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 27</span>
+27:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_param</span>
+28:     <span class="ruby-node">&quot;#{id}-#{login.parameterize}&quot;</span>
+29:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000009" class="method-detail">
-        <a name="M000009"></a>
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
 
         <div class="method-heading">
-          <a href="#M000009" class="method-signature">
+          <a href="#M000005" class="method-signature">
           <span class="method-name">upgrade_to_admin</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-<a href="Admin.html">Admin</a> controls
+Promote to admin
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000009-source">
+            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000005-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/user.rb, line 30</span>
-30:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">upgrade_to_admin</span>
-31:     <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span>
-32:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span> = <span class="ruby-keyword kw">true</span>
-33:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save</span>
-34:     <span class="ruby-keyword kw">end</span>
-35:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 32</span>
+32:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">upgrade_to_admin</span>
+33:     <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span>
+34:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span> = <span class="ruby-keyword kw">true</span>
+35:     <span class="ruby-keyword kw">end</span>
+36:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="#M000006" class="method-signature">
+          <span class="method-name">upgrade_to_admin!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Promote to admin and save
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000006-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/user.rb, line 39</span>
+39:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">upgrade_to_admin!</span>
+40:     <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span>
+41:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_admin</span> = <span class="ruby-keyword kw">true</span>
+42:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save</span>
+43:     <span class="ruby-keyword kw">end</span>
+44:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>

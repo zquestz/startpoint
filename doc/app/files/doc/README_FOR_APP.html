@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Mon Jul 12 23:21:58 -0700 2010</td>
+      <td>Mon Oct 11 20:31:49 -0700 2010</td>
     </tr>
     </table>
   </div>
@@ -69,9 +69,131 @@
   <div id="contextContent">
 
     <div id="description">
-      <p>
-Shell App. Yeah that&#8216;s it for now.
+      <ul>
+<li>startpoint -
+
+</li>
+</ul>
+<p>
+<a
+href="http://github.com/zquestz/startpoint">github.com/zquestz/startpoint</a>
 </p>
+<p>
+Just a shell app that incorporates things you probably want in your
+application, but don&#8216;t come by default in Rails. Still is a work in
+progress but the start is solid. Below is a list of features, when I get
+some more time I will write more docs. Everything should be pretty
+straightforward.
+</p>
+<p>
+This app uses bundler, and rvm is recommended. By default it uses the
+1.8.7@startpoint gemset.
+</p>
+<p>
+Installation:
+</p>
+<ul>
+<li>In rvm create a gemset for the app &#8216;rvm gemset create
+1.8.7@startpoint&#8216;
+
+</li>
+<li>Make sure you have bundler installed, then run &#8216;bundle
+install&#8217;.
+
+</li>
+<li>Create your default databases for development and test environments.
+&#8216;rake db:create &amp;&amp; RAILS_ENV=test rake db:create&#8216;
+
+</li>
+<li>Run your migrations &#8216;rake db:migrate &amp;&amp; RAILS_ENV=test rake
+db:migrate&#8216;
+
+</li>
+<li>Go over the settings file in &#8216;config/settings.yml&#8217; and change
+whatever you need to.
+
+</li>
+<li>Now run the seeds for your dev environment. &#8216;rake db:seed&#8216;
+
+</li>
+</ul>
+<p>
+Now you should now be all set to go. Now you can fire up the app with
+&#8217;./script/server&#8217;.
+</p>
+<p>
+I also use New Relic for all my applications. If you don&#8216;t have an
+account there yet, go signup for a free account at <a
+href="http://newrelic.com">newrelic.com</a>. Once you have signed up for an
+account, go through their documentation and install your
+&#8216;newrelic.yml&#8217; file in &#8216;config/newrelic.yml&#8217;.
+</p>
+<p>
+To run the tests just run &#8216;rake test:coverage&#8217; and they should
+all pass. If you notice areas where rcov reports the code is untested,
+those are usually triggered through a settings change. Then you can test
+and branch into those pieces of code. About 95% of the code is tested
+somewhere, although rcov shows it a bit less. If you decide to contribute
+to this project, please make sure to include tests with your commits.
+</p>
+<p>
+Hightlights:
+</p>
+<ul>
+<li>Custom settings via config/settings.yml
+
+</li>
+<li>Full registration system using authlogic with forgotten password and email
+confirmation support.
+
+</li>
+<li>Avatar support via paperclip
+
+</li>
+<li>Uploadify baked in for batch image and pdf uploading.
+
+</li>
+<li>Setup for full mobile support via the mobile format, thanks to mobile-fu.
+
+</li>
+<li>Replaced default mysql gem with the mysqlplus gem.
+
+</li>
+<li>Basic Notify controller for sending out emails. This uses Delayed Job to
+send all emails via a background task.
+
+</li>
+<li><a href="../../classes/Admin.html">Admin</a> roles and small admin
+interface for Users.
+
+</li>
+<li><a href="../../classes/User.html">User</a> caching system with a expiring
+sweeper using memcached and Rails.fetch/Rails.delete.
+
+</li>
+<li>jrails with jQuery 1.4.2 and jQuery UI.
+
+</li>
+<li>LESS has been setup using the more plugin/gem. All stylesheets are already
+setup as .less files.
+
+</li>
+<li>TinyMce is available via the tinymce gem.
+
+</li>
+<li>Pagination via will_paginate
+
+</li>
+<li>Tagging lib acts-as-taggable-on already setup
+
+</li>
+<li>reCaptcha setup for all signups.
+
+</li>
+<li>Fully localized using i18n, supporting new languages is a breeze.
+
+</li>
+</ul>
 
     </div>
 
