@@ -30,15 +30,15 @@
             <td class="left_align"><a href="app-controllers-application_controller_rb.html">app/controllers/application_controller.rb</a></td>
             <td class='right_align'><tt>163</tt></td>
             <td class='right_align'><tt>117</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>82.82%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>85.89%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:83px"></div>
-            <div class="uncovered" style="width:17px"></div>
+            <div class="covered" style="width:86px"></div>
+            <div class="uncovered" style="width:14px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>76.07%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>80.34%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:76px"></div>
-            <div class="uncovered" style="width:24px"></div>
+            <div class="covered" style="width:80px"></div>
+            <div class="uncovered" style="width:20px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -188,37 +188,37 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line23">23</a>       page = Rails.cache.fetch(['show_page', page_name].join('-')) do</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line24">24</a>         Page.find(:first, :conditions =&gt; ['name = ?', page_name], :include =&gt; [:images, :pdfs]) || Page.create!(:name =&gt; page_name, :protected =&gt; true)</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line25">25</a>       end</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line26">26</a>     else</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line27">27</a>       page = Page.find(:first, :conditions =&gt; ['name = ?', page_name], :include =&gt; [:images, :pdfs]) || Page.create!(:name =&gt; page_name, :protected =&gt; true)</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line28">28</a>     end</pre></td>
           </tr>
         
@@ -266,19 +266,19 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line36">36</a>       Rails.cache.delete(&quot;show_page-#{page_name}&quot;)</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line37">37</a>     end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line38">38</a>   end</pre></td>
           </tr>
         
@@ -668,13 +668,13 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line103">103</a>     param.split('-')[0]</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line104">104</a>   end</pre></td>
           </tr>
         
@@ -1035,7 +1035,7 @@
       </tbody>
     </table>
 
-    <p>Generated on Mon Oct 11 18:19:57 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Mon Oct 11 20:33:56 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

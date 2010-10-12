@@ -30,15 +30,15 @@
             <td class="left_align"><a href="app-models-master_sweeper_rb.html">app/models/master_sweeper.rb</a></td>
             <td class='right_align'><tt>64</tt></td>
             <td class='right_align'><tt>49</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>32.81%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>93.75%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:33px"></div>
-            <div class="uncovered" style="width:67px"></div>
+            <div class="covered" style="width:94px"></div>
+            <div class="uncovered" style="width:6px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>20.41%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>91.84%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:20px"></div>
-            <div class="uncovered" style="width:80px"></div>
+            <div class="covered" style="width:92px"></div>
+            <div class="uncovered" style="width:8px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -98,19 +98,19 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line8">8</a>       expire_cache_for(record, 'create')</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line9">9</a>     end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line10">10</a>   end</pre></td>
           </tr>
         
@@ -140,19 +140,19 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line15">15</a>       expire_cache_for(record, 'update')</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line16">16</a>     end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line17">17</a>   end</pre></td>
           </tr>
         
@@ -182,19 +182,19 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line22">22</a>       expire_cache_for(record, 'destroy')</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line23">23</a>     end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line24">24</a>   end</pre></td>
           </tr>
         
@@ -236,121 +236,121 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line31">31</a>     # Expire user caches</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line32">32</a>     if record.class == User</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line33">33</a>       real_keys = record.changes.keys.sort - [&quot;last_request_at&quot;, &quot;perishable_token&quot;, &quot;updated_at&quot;]</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line34">34</a>       if ( (real_keys != []) or (callback == 'destroy') )</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line35">35</a>         # Expire the caches in the User model for counts if records are created/deleted</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line36">36</a>         if (callback != 'update' || real_keys.include?(&quot;is_admin&quot;))</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line37">37</a>           Rails.cache.delete('regular_user_count')</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line38">38</a>           Rails.cache.delete('admin_user_count')</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line39">39</a>         end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line40">40</a>         # Expire the index now that a user has changed</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line41">41</a>         total_pages = (User.total_users_count.to_f / User.per_page).ceil</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line42">42</a>         (1..total_pages).each do |i|</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line43">43</a>           Rails.cache.delete(&quot;accounts_index-#{i}&quot;)</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line44">44</a>         end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line45">45</a>         # Expire their profile page.</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line46">46</a>         Rails.cache.delete(&quot;accounts_show-#{record.id}&quot;)</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line47">47</a>       end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line48">48</a>     elsif record.class == PageImage</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line49">49</a>       Rails.cache.delete(&quot;show_page-#{record.page.name}&quot;)</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line50">50</a>     elsif record.class == PagePdf</pre></td>
           </tr>
         
@@ -362,31 +362,31 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line52">52</a>     elsif record.class == Image</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line53">53</a>       for page in record.pages</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line54">54</a>         Rails.cache.delete(&quot;show_page-#{page.name}&quot;)</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line55">55</a>       end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line56">56</a>     elsif record.class == Pdf</pre></td>
           </tr>
         
@@ -410,38 +410,38 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line60">60</a>     elsif record.class == Page</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line61">61</a>       Rails.cache.delete(&quot;show_page-#{record.name}&quot;)</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line62">62</a>     end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line63">63</a>   end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line64">64</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Mon Oct 11 18:19:57 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Mon Oct 11 20:33:56 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

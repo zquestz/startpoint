@@ -1,1 +1,39 @@
-Shell App. Yeah that's it for now. For more information see the README in the root directory.
+- startpoint -
+http://github.com/zquestz/startpoint
+
+Just a shell app that incorporates things you probably want in your application, but don't come by default in Rails. Still is a work in progress but the start is solid. Below is a list of features, when I get some more time I will write more docs. Everything should be pretty straightforward. 
+
+This app uses bundler, and rvm is recommended. By default it uses the 1.8.7@startpoint gemset.
+
+Installation:
+* In rvm create a gemset for the app 'rvm gemset create 1.8.7@startpoint'
+* Make sure you have bundler installed, then run 'bundle install'. 
+* Create your default databases for development and test environments. 'rake db:create && RAILS_ENV=test rake db:create'
+* Run your migrations 'rake db:migrate && RAILS_ENV=test rake db:migrate'
+* Go over the settings file in 'config/settings.yml' and change whatever you need to.
+* Now run the seeds for your dev environment. 'rake db:seed'
+
+Now you should now be all set to go. Now you can fire up the app with './script/server'.
+
+I also use New Relic for all my applications. If you don't have an account there yet, go signup for a free account at http://newrelic.com. Once you have signed up for an account, go through their documentation and install your 'newrelic.yml' file in 'config/newrelic.yml'.
+
+To run the tests just run 'rake test:coverage' and they should all pass. If you notice areas where rcov reports the code is untested, those are usually triggered through a settings change. Then you can test and branch into those pieces of code. About 95% of the code is tested somewhere, although rcov shows it a bit less. If you decide to contribute to this project, please make sure to include tests with your commits. 
+
+Hightlights:
+
+* Custom settings via config/settings.yml
+* Full registration system using authlogic with forgotten password and email confirmation support.
+* Avatar support via paperclip
+* Uploadify baked in for batch image and pdf uploading.
+* Setup for full mobile support via the mobile format, thanks to mobile-fu.
+* Replaced default mysql gem with the mysqlplus gem.
+* Basic Notify controller for sending out emails. This uses Delayed Job to send all emails via a background task.
+* Admin roles and small admin interface for Users.
+* User caching system with a expiring sweeper using memcached and Rails.fetch/Rails.delete.
+* jrails with jQuery 1.4.2 and jQuery UI.
+* LESS has been setup using the more plugin/gem. All stylesheets are already setup as .less files.
+* TinyMce is available via the tinymce gem.
+* Pagination via will_paginate
+* Tagging lib acts-as-taggable-on already setup
+* reCaptcha setup for all signups.
+* Fully localized using i18n, supporting new languages is a breeze.

@@ -30,15 +30,15 @@
             <td class="left_align"><a href="app-models-user_rb.html">app/models/user.rb</a></td>
             <td class='right_align'><tt>136</tt></td>
             <td class='right_align'><tt>93</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>90.44%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>94.12%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:90px"></div>
-            <div class="uncovered" style="width:10px"></div>
+            <div class="covered" style="width:94px"></div>
+            <div class="uncovered" style="width:6px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>86.02%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>91.40%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:86px"></div>
-            <div class="uncovered" style="width:14px"></div>
+            <div class="covered" style="width:91px"></div>
+            <div class="uncovered" style="width:9px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -572,25 +572,25 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line87">87</a>     if Rails.configuration.cache_classes == true</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line88">88</a>       Rails.cache.fetch('regular_user_count') do</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line89">89</a>         User.count(:conditions =&gt; ['is_admin = ?', false])</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line90">90</a>       end</pre></td>
           </tr>
         
@@ -644,43 +644,43 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line99">99</a>       Rails.cache.fetch('admin_user_count') do</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line100">100</a>         User.count(:conditions =&gt; ['is_admin = ?', true])</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line101">101</a>       end</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line102">102</a>     else</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line103">103</a>       User.count(:conditions =&gt; ['is_admin = ?', true])</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line104">104</a>     end</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
+          <tr class="uncovered">
             <td><pre><a name="line105">105</a>   end</pre></td>
           </tr>
         
@@ -710,13 +710,13 @@
         
           
           
-          <tr class="uncovered">
+          <tr class="marked">
             <td><pre><a name="line110">110</a>     self.regular_users_count + self.admin_users_count</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
+          <tr class="inferred">
             <td><pre><a name="line111">111</a>   end</pre></td>
           </tr>
         
@@ -873,7 +873,7 @@
       </tbody>
     </table>
 
-    <p>Generated on Mon Oct 11 18:19:57 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Mon Oct 11 20:33:56 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>
