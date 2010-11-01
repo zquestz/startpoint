@@ -1,4 +1,5 @@
 Dir[File.dirname(__FILE__) + '/deploy/recipes/*.rb'].each {|file| require file }.each {|file| require file }
+require 'bundler/capistrano'
 
 set :application, "startpoint"
 set :repository,  "git@github.com:zquestz/startpoint.git"
