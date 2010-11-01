@@ -7,6 +7,10 @@ set :repository,  "git@github.com:zquestz/startpoint.git"
 # Set your version control system
 set :scm, :git
 set :git_enable_submodules, true
+set :use_sudo, true
+set :user, 'user'
+set :runner, 'user'
+set :admin_runner, 'user'
 
 # Set up env
 set :rails_env, 'production'
@@ -14,6 +18,7 @@ set :branch, 'master'
 set :deploy_via, :remote_cache
 ssh_options[:forward_agent] = true
 default_run_options[:pty]   = true
+#default_environment['PATH'] = "/opt/ruby-enterprise/bin:/usr/local/bin:/usr/bin:/bin"
 
 # Only keep 5 releases
 set :keep_releases, 5
