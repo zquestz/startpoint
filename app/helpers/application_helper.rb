@@ -62,6 +62,10 @@ module ApplicationHelper
       items.each do |c|
         sort_links.push(sort_calc(t("activerecord.attributes.image.#{c}"), c))
       end
+    elsif ['pdfs'].include?(controller.controller_name)
+      items.each do |c|
+        sort_links.push(sort_calc(t("activerecord.attributes.pdf.#{c}"), c))
+      end
     else
       items.each do |c|
         sort_links.push(sort_calc(c.to_s.humanize, c))
