@@ -24,6 +24,10 @@
   <%= f.password_field :password_confirmation %>
 </div>
 <div class="fs">
+  <%= f.label :time_zone %>
+  <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.all, {:default => Setting.default_time_zone} %>
+</div>
+<div class="fs">
   <%= f.label :avatar %>
   <%= f.file_field :avatar %>
 </div>

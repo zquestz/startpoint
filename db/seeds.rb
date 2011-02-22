@@ -20,7 +20,8 @@ user_time = time do
     :login => 'admin', 
     :email => Setting.admin_email, 
     :password => 'administrator', 
-    :password_confirmation => 'administrator'
+    :password_confirmation => 'administrator',
+    :time_zone => Setting.default_time_zone
   )
   File.open(RAILS_ROOT + "/public/images/seeds/admin.png", 'r') do |f|
     user.avatar = f
@@ -60,7 +61,7 @@ if ENV['TESTDATA']
   user_time = time do
     puts "^!^ Creating regular users for testing..."
     (1..10000).each do |i|
-      user = User.create(:first_name => 'Regular', :last_name => 'User', :login => 'user' + i.to_s, :email => 'user' + i.to_s + '@user.com', :password => 'regularuser', :password_confirmation => 'regularuser')
+      user = User.create(:first_name => 'Regular', :last_name => 'User', :login => 'user' + i.to_s, :email => 'user' + i.to_s + '@user.com', :password => 'regularuser', :password_confirmation => 'regularuser', :time_zone => Setting.default_time_zone)
       user.activate!
     end
   end

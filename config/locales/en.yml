@@ -297,6 +297,7 @@ en:
         email: 'Email'
         password: 'Password'
         password_confirmation: 'Password Confirmation'
+        time_zone: 'Time Zone'
         crypted_password: 'Crypted Password'
         password_salt: 'Password Salt'
         persistence_token: 'Persistence Token'

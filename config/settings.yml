@@ -27,6 +27,8 @@
     meta_description: StartPoint for Rails.
     # Default Meta Keywords
     meta_keywords: StartPoint
+    # Default time zone
+    default_time_zone: 'Pacific Time (US & Canada)'
   # Development settings
   development:
   # Staging settings

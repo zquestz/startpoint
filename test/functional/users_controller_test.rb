@@ -63,7 +63,8 @@ class UsersControllerTest < ActionController::TestCase
           :first_name => 'Temp', 
           :last_name => 'User', 
           :password => 'password', 
-          :password_confirmation => 'password'
+          :password_confirmation => 'password',
+          :time_zone => Setting.default_time_zone
         }
       end
   
@@ -92,7 +93,8 @@ class UsersControllerTest < ActionController::TestCase
           :first_name => 'Temp', 
           :last_name => 'User', 
           :password => 'password', 
-          :password_confirmation => 'password'
+          :password_confirmation => 'password',
+          :time_zone => Setting.default_time_zone
         }
       end
   

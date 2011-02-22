@@ -22,6 +22,10 @@
   <%=h @user.login %>
 </p>
 <p>
+  <b><%= t('activerecord.attributes.user.time_zone') -%>:</b>
+  <%=h @user.time_zone %>
+</p>
+<p>
   <b><%= t('activerecord.attributes.user.created_at') -%>:</b>
   <%= h @user.created_at.rfc822 %>
 </p>

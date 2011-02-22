@@ -11,6 +11,7 @@ admin:
   perishable_token: <%= Authlogic::Random.friendly_token %>
   active: true
   is_admin: true
+  time_zone: '<%= Setting.default_time_zone %>'
   
 admin2:
   id: 2
@@ -25,6 +26,7 @@ admin2:
   perishable_token: <%= Authlogic::Random.friendly_token %>
   active: true
   is_admin: true
+  time_zone: '<%= Setting.default_time_zone %>'
   
 regular:
   id: 3
@@ -39,6 +41,7 @@ regular:
   perishable_token: <%= Authlogic::Random.friendly_token %>
   active: true
   is_admin: false
+  time_zone: '<%= Setting.default_time_zone %>'
   
 inactive:
   id: 4
@@ -53,3 +56,4 @@ inactive:
   perishable_token: <%= Authlogic::Random.friendly_token %>
   active: false
   is_admin: false
+  time_zone: '<%= Setting.default_time_zone %>'

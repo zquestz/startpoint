@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   
   has_attached_file :avatar, :styles => { :medium => '300x300>', :thumb => '100x100>', :large_icon => '64x64#', :icon => '32x32#' }, :url => '/system/:class/:attachment/:id/:style/:filename', :default_url => '/paperclip/:class/:attachment/:style/missing.png'
   
-  validates_presence_of :first_name, :last_name
+  validates_presence_of :first_name, :last_name, :time_zone
   
   # Validate attachement if it is present.
   validates_attachment_content_type :avatar, :content_type => ['image/pjpeg','image/jpeg','image/png','image/gif']
@@ -113,19 +113,19 @@ class User < ActiveRecord::Base
   # Send password reset instructions
   def deliver_password_reset_instructions!
     reset_perishable_token!
-    Notifier.send_later :deliver_password_reset_instructions, self
+    Notifier.delay.deliver_password_reset_instructions(self)
   end
 
   # Send activation instructions
   def deliver_activation_instructions!
     reset_perishable_token!
-    Notifier.send_later :deliver_activation_instructions, self
+    Notifier.delay.deliver_activation_instructions(self)
   end
   
   # Send welcome message
   def deliver_welcome!
     reset_perishable_token!
-    Notifier.send_later :deliver_welcome, self
+    Notifier.delay.deliver_welcome(self)
   end
   
   # Allow logins via email or login

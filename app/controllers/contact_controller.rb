@@ -14,7 +14,7 @@ class ContactController < ApplicationController
     @contact = params['contact']
     respond_to do |format|
       if validate_contact_fields
-        Notifier.send_later :deliver_contact_email, @contact
+        Notifier.delay.deliver_contact_email(@contact)
         flash[:notice] = t(:contact_success)
         format.html { redirect_back_or_default(contact_path) }
       else

@@ -14,7 +14,8 @@ class UserTest < ActiveSupport::TestCase
       :first_name => 'New', 
       :last_name => 'User', 
       :password => 'password', 
-      :password_confirmation => 'password'
+      :password_confirmation => 'password',
+      :time_zone => Setting.default_time_zone
     )
     assert user.save
   end
@@ -28,7 +29,8 @@ class UserTest < ActiveSupport::TestCase
       :password => 'password', 
       :password_confirmation => 'password', 
       :is_admin => true, 
-      :active => true
+      :active => true,
+      :time_zone => Setting.default_time_zone
     )
     assert user.save
     assert !user.is_admin

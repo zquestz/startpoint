@@ -21,6 +21,10 @@
   <%=h @user.login %>
 </p>
 <p>
+  <b><%= t('activerecord.attributes.user.time_zone') -%>:</b>
+  <%=h @user.time_zone %>
+</p>
+<p>
   <b><%= t('activerecord.attributes.user.email') -%>:</b>
   <%= display_email(@user.email) %>
 </p>
