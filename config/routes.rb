@@ -33,10 +33,16 @@ ActionController::Routing::Routes.draw do |map|
     admin.connect '/galleries/:c/:d', :controller => 'galleries', :action => 'index', :d => /(ASC|DESC)/
     admin.resources :galleries
     admin.connect '/images/:id/style/:preview', :controller => 'images', :action => 'show'
+    admin.connect '/images/page/:page/:c/:d', :controller => 'images', :action => 'index', :d => /(ASC|DESC)/
+    admin.connect '/images/page/:page', :controller => 'images', :action => 'index'
+    admin.connect '/images/:c/:d', :controller => 'images', :action => 'index', :d => /(ASC|DESC)/
     admin.resources :images
     admin.edit_batch_images 'images/*ids/edit', :controller => 'images', :action => 'edit_batches', :conditions => { :method => :get }
     admin.update_batch_images 'images/*ids', :controller => 'images', :action => 'update_batches', :conditions => { :method => :put }
     admin.detroy_batch_images 'images/*ids', :controller => 'images', :action => 'destroy_batches', :conditions => { :method => :delete }
+    admin.connect '/pdfs/page/:page/:c/:d', :controller => 'pdfs', :action => 'index', :d => /(ASC|DESC)/
+    admin.connect '/pdfs/page/:page', :controller => 'pdfs', :action => 'index'
+    admin.connect '/pdfs/:c/:d', :controller => 'pdfs', :action => 'index', :d => /(ASC|DESC)/
     admin.resources :pdfs
     admin.edit_batch_pdfs 'pdfs/*ids/edit', :controller => 'pdfs', :action => 'edit_batches', :conditions => { :method => :get }
     admin.update_batch_pdfs 'pdfs/*ids', :controller => 'pdfs', :action => 'update_batches', :conditions => { :method => :put }
