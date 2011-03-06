@@ -46,19 +46,19 @@ class MasterSweeper < ActionController::Caching::Sweeper
         Rails.cache.delete("accounts_show-#{record.id}")
       end
     elsif record.class == PageImage
-      Rails.cache.delete("show_page-#{record.page.name}")
+      Rails.cache.delete("show_page-#{record.page.name.parameterize}")
     elsif record.class == PagePdf
-      Rails.cache.delete("show_page-#{record.page.name}")
+      Rails.cache.delete("show_page-#{record.page.name.parameterize}")
     elsif record.class == Image
       for page in record.pages
-        Rails.cache.delete("show_page-#{page.name}")
+        Rails.cache.delete("show_page-#{page.name.parameterize}")
       end
     elsif record.class == Pdf
       for page in record.pages
-        Rails.cache.delete("show_page-#{page.name}")
+        Rails.cache.delete("show_page-#{page.name.parameterize}")
       end
     elsif record.class == Page
-      Rails.cache.delete("show_page-#{record.name}")
+      Rails.cache.delete("show_page-#{record.name.parameterize}")
     end
   end
 end

@@ -99,7 +99,7 @@ class Admin::ImagesControllerTest < ActionController::TestCase
   test "admin should update image" do
     if Setting.maintenance == false
       UserSession.create(users(:admin))
-      put :update, :id => images(:one).to_param, :image => { :name => "New Title", :page_ids => [1] }
+      put :update, :id => images(:one).to_param, :image => { :name => "New Title" }
   
       assert_redirected_to admin_image_path(assigns(:image))
       assert_not_nil flash[:notice]

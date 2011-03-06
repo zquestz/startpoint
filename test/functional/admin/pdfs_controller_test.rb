@@ -91,7 +91,7 @@ class Admin::PdfsControllerTest < ActionController::TestCase
   test "admin should update pdf" do
     if Setting.maintenance == false
       UserSession.create(users(:admin))
-      put :update, :id => pdfs(:one).to_param, :pdf => { :name => "New Title", :page_ids => [1] }
+      put :update, :id => pdfs(:one).to_param, :pdf => { :name => "New Title" }
   
       assert_redirected_to admin_pdf_path(assigns(:pdf))
       assert_not_nil flash[:notice]

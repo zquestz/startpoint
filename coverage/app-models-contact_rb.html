@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-models-contact_rb.html">app/models/contact.rb</a></td>
-            <td class='right_align'><tt>35</tt></td>
-            <td class='right_align'><tt>24</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>94.29%</tt></div>
+            <td class='right_align'><tt>49</tt></td>
+            <td class='right_align'><tt>38</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>95.92%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:94px"></div>
-            <div class="uncovered" style="width:6px"></div>
+            <div class="covered" style="width:96px"></div>
+            <div class="uncovered" style="width:4px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>91.67%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>94.74%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:92px"></div>
-            <div class="uncovered" style="width:8px"></div>
+            <div class="covered" style="width:95px"></div>
+            <div class="uncovered" style="width:5px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -212,62 +212,146 @@
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line27">27</a>       csv &lt;&lt; [I18n.t('activerecord.attributes.contact.email'), I18n.t('activerecord.attributes.contact.first_name'), I18n.t('activerecord.attributes.contact.last_name'), I18n.t('activerecord.attributes.contact.phone'), I18n.t('activerecord.attributes.contact.created_at'), I18n.t('activerecord.attributes.contact.updated_at')]</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line28">28</a>       for contact in contacts</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line27">27</a>       csv &lt;&lt; [</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line29">29</a>         csv &lt;&lt; [contact.email, contact.first_name, contact.last_name, contact.phone, contact.created_at, contact.updated_at]</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line30">30</a>       end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line31">31</a>     end</pre></td>
+            <td><pre><a name="line28">28</a>         I18n.t('activerecord.attributes.contact.email'), </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line32">32</a>     return csv_data</pre></td>
+            <td><pre><a name="line29">29</a>         I18n.t('activerecord.attributes.contact.first_name'), </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line30">30</a>         I18n.t('activerecord.attributes.contact.last_name'), </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line31">31</a>         I18n.t('activerecord.attributes.contact.phone'), </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line32">32</a>         I18n.t('activerecord.attributes.contact.created_at'), </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line33">33</a>         I18n.t('activerecord.attributes.contact.updated_at')</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line34">34</a>       ]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line35">35</a>       for contact in contacts</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line33">33</a>   end</pre></td>
+            <td><pre><a name="line36">36</a>         csv &lt;&lt; [</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line37">37</a>           contact.email, </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line38">38</a>           contact.first_name, </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line39">39</a>           contact.last_name,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line40">40</a>           contact.phone, </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line41">41</a>           contact.created_at, </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line42">42</a>           contact.updated_at</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line43">43</a>         ]</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line34">34</a>   </pre></td>
+            <td><pre><a name="line44">44</a>       end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line35">35</a> end</pre></td>
+            <td><pre><a name="line45">45</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line46">46</a>     return csv_data</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line47">47</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line48">48</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line49">49</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Mon Oct 11 23:27:32 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Sun Mar 06 01:28:17 -0800 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

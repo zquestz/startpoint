@@ -171,7 +171,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line20">20</a>   validates_presence_of :first_name, :last_name</pre></td>
+            <td><pre><a name="line20">20</a>   validates_presence_of :first_name, :last_name, :time_zone</pre></td>
           </tr>
         
           
@@ -747,7 +747,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line116">116</a>     Notifier.send_later :deliver_password_reset_instructions, self</pre></td>
+            <td><pre><a name="line116">116</a>     Notifier.delay.deliver_password_reset_instructions(self)</pre></td>
           </tr>
         
           
@@ -783,7 +783,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line122">122</a>     Notifier.send_later :deliver_activation_instructions, self</pre></td>
+            <td><pre><a name="line122">122</a>     Notifier.delay.deliver_activation_instructions(self)</pre></td>
           </tr>
         
           
@@ -819,7 +819,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line128">128</a>     Notifier.send_later :deliver_welcome, self</pre></td>
+            <td><pre><a name="line128">128</a>     Notifier.delay.deliver_welcome(self)</pre></td>
           </tr>
         
           
@@ -873,7 +873,7 @@
       </tbody>
     </table>
 
-    <p>Generated on Mon Oct 11 23:27:32 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Sun Mar 06 01:28:17 -0800 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

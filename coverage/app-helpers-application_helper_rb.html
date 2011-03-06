@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-helpers-application_helper_rb.html">app/helpers/application_helper.rb</a></td>
-            <td class='right_align'><tt>93</tt></td>
-            <td class='right_align'><tt>65</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>92.47%</tt></div>
+            <td class='right_align'><tt>97</tt></td>
+            <td class='right_align'><tt>69</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>92.78%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:92px"></div>
-            <div class="uncovered" style="width:8px"></div>
+            <div class="covered" style="width:93px"></div>
+            <div class="uncovered" style="width:7px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>89.23%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>89.86%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:89px"></div>
-            <div class="uncovered" style="width:11px"></div>
+            <div class="covered" style="width:90px"></div>
+            <div class="uncovered" style="width:10px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -440,8 +440,8 @@
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line65">65</a>     else</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line65">65</a>     elsif ['pdfs'].include?(controller.controller_name)</pre></td>
           </tr>
         
           
@@ -453,7 +453,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line67">67</a>         sort_links.push(sort_calc(c.to_s.humanize, c))</pre></td>
+            <td><pre><a name="line67">67</a>         sort_links.push(sort_calc(t(&quot;activerecord.attributes.pdf.#{c}&quot;), c))</pre></td>
           </tr>
         
           
@@ -465,157 +465,181 @@
           
           
           <tr class="inferred">
-            <td><pre><a name="line69">69</a>     end</pre></td>
+            <td><pre><a name="line69">69</a>     else</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line70">70</a>     sort_links.join(joinval)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line71">71</a>   end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line72">72</a>   </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line73">73</a>   # Smuggled from http://rubyglasses.blogspot.com/2009/07/adding-prompt-to-selecttag.html</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line74">74</a>   # Thanks Taryn for your code</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line75">75</a>   # override select_tag to allow the &quot;:include_blank =&gt; true&quot; and &quot;:prompt =&gt; 'whatever'&quot; options</pre></td>
+            <td><pre><a name="line70">70</a>       items.each do |c|</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line76">76</a>   include ActionView::Helpers::FormTagHelper</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line77">77</a>   alias_method :orig_select_tag, :select_tag</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line78">78</a>   def select_tag(name, select_options, options = {}, html_options = {})</pre></td>
+            <td><pre><a name="line71">71</a>         sort_links.push(sort_calc(c.to_s.humanize, c))</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line79">79</a>     # remove the options that select_tag doesn't currently recognise</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line80">80</a>     include_blank = options.has_key?(:include_blank) &amp;&amp; options.delete(:include_blank)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line81">81</a>     prompt = options.has_key?(:prompt) &amp;&amp; options.delete(:prompt)</pre></td>
+            <td><pre><a name="line72">72</a>       end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line82">82</a>     </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line83">83</a>     # if we didn't pass either - continue on as before</pre></td>
+            <td><pre><a name="line73">73</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line84">84</a>     return orig_select_tag(name, select_options, options.merge(html_options)) unless include_blank || prompt</pre></td>
+            <td><pre><a name="line74">74</a>     sort_links.join(joinval)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line85">85</a> </pre></td>
+            <td><pre><a name="line75">75</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line86">86</a>     # otherwise, add them in ourselves</pre></td>
+            <td><pre><a name="line76">76</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line77">77</a>   # Smuggled from http://rubyglasses.blogspot.com/2009/07/adding-prompt-to-selecttag.html</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line78">78</a>   # Thanks Taryn for your code</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line79">79</a>   # override select_tag to allow the &quot;:include_blank =&gt; true&quot; and &quot;:prompt =&gt; 'whatever'&quot; options</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line87">87</a>     prompt_option  = '&lt;option value=&quot;&quot;&gt;' # to make sure it shows up as nil</pre></td>
+            <td><pre><a name="line80">80</a>   include ActionView::Helpers::FormTagHelper</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line88">88</a>     prompt_option += (prompt ? prompt.to_s : '') + '&lt;/option&gt;'</pre></td>
+            <td><pre><a name="line81">81</a>   alias_method :orig_select_tag, :select_tag</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line89">89</a>     new_select_options = prompt_option + select_options</pre></td>
+            <td><pre><a name="line82">82</a>   def select_tag(name, select_options, options = {}, html_options = {})</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line83">83</a>     # remove the options that select_tag doesn't currently recognise</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line90">90</a>     orig_select_tag(name, new_select_options, options.merge(html_options))</pre></td>
+            <td><pre><a name="line84">84</a>     include_blank = options.has_key?(:include_blank) &amp;&amp; options.delete(:include_blank)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line85">85</a>     prompt = options.has_key?(:prompt) &amp;&amp; options.delete(:prompt)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line91">91</a>   end</pre></td>
+            <td><pre><a name="line86">86</a>     </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line92">92</a> </pre></td>
+            <td><pre><a name="line87">87</a>     # if we didn't pass either - continue on as before</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line88">88</a>     return orig_select_tag(name, select_options, options.merge(html_options)) unless include_blank || prompt</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line93">93</a> end</pre></td>
+            <td><pre><a name="line89">89</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line90">90</a>     # otherwise, add them in ourselves</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line91">91</a>     prompt_option  = '&lt;option value=&quot;&quot;&gt;' # to make sure it shows up as nil</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line92">92</a>     prompt_option += (prompt ? prompt.to_s : '') + '&lt;/option&gt;'</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line93">93</a>     new_select_options = prompt_option + select_options</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line94">94</a>     orig_select_tag(name, new_select_options, options.merge(html_options))</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line95">95</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line96">96</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line97">97</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Mon Oct 11 23:27:32 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Sun Mar 06 01:28:17 -0800 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

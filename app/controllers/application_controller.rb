@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   # Provides caching, images, meta tags for pages.
   def display_page(page_name)
     if Rails.configuration.cache_classes == true
-      page = Rails.cache.fetch(['show_page', page_name].join('-')) do
+      page = Rails.cache.fetch(['show_page', page_name.parameterize].join('-')) do
         Page.find(:first, :conditions => ['name = ?', page_name], :include => [:images, :pdfs]) || Page.create!(:name => page_name, :protected => true)
       end
     else
@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
   # Expire page cache
   def expire_page_cache(page_name)
     if Rails.configuration.cache_classes == true
-      Rails.cache.delete("show_page-#{page_name}")
+      Rails.cache.delete("show_page-#{page_name.parameterize}")
     end
   end
   
