@@ -2,7 +2,7 @@ class Notifier < ActionMailer::Base
   helper :application
   
   def password_reset_instructions(user)
-    subject      Setting.app_name + ' - ' + t(:password_reset_instructions)
+    subject      Setting.app_name + ' - ' + I18n.translate(:password_reset_instructions)
     from         Setting.mailer_email
     recipients   user.email
     content_type 'text/html'
@@ -11,7 +11,7 @@ class Notifier < ActionMailer::Base
   end
   
   def activation_instructions(user)
-    subject       Setting.app_name + ' - ' + t(:activation_instructions)
+    subject       Setting.app_name + ' - ' + I18n.translate(:activation_instructions)
     from          Setting.mailer_email
     recipients    user.email
     content_type 'text/html'
@@ -29,7 +29,7 @@ class Notifier < ActionMailer::Base
   end
   
   def contact_email(contact)
-    subject       t(:contact_message_subject) + " - #{Setting.app_name}"
+    subject       I18n.translate(:contact_message_subject) + " - #{Setting.app_name}"
     from          Setting.mailer_email
     recipients    Setting.support_email
     content_type 'text/html'

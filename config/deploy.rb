@@ -35,3 +35,4 @@ set :deploy_to, "/var/www/#{application}"
 # Make sure you delete previous releases
 # :keep_releases depends on this being present
 after "deploy:update", "deploy:cleanup"
+after "deploy:restart", "deploy:delayed_job_restart"
