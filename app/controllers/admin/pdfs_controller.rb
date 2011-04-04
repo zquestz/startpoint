@@ -61,15 +61,13 @@ class Admin::PdfsController < ApplicationController
     if params['Filedata']
       @pdf = Pdf.new(:uploadify_file => params['Filedata'])
       @pdf.user = current_user
-      respond_to do |format|
-        if @pdf.save
-          flash[:success]  = t(:pdf_created)
-          flash[:pdf_id] = @pdf.id
-          format.html { render :text => flash.to_json, :status => 200 }
-        else
-          flash[:error] = t(:pdf_create_error)
-          format.html { render :text => flash[:error], :status => 500 }
-        end
+      if @pdf.save
+        flash[:success]  = t(:pdf_created)
+        flash[:pdf_id] = @pdf.id
+        render :text => flash.to_json, :status => 200
+      else
+        flash[:error] = t(:pdf_create_error)
+        render :text => flash[:error], :status => 500
       end
     else
       @pdf = Pdf.new(params[:pdf])

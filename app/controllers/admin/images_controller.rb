@@ -61,15 +61,13 @@ class Admin::ImagesController < ApplicationController
     if params['Filedata']
       @image = Image.new(:uploadify_file => params['Filedata'])
       @image.user = current_user
-      respond_to do |format|
-        if @image.save
-          flash[:success]  = t(:image_created)
-          flash[:image_id] = @image.id
-          format.html { render :text => flash.to_json, :status => 200 }
-        else
-          flash[:error] = t(:image_create_error)
-          format.html { render :text => flash[:error], :status => 500 }
-        end
+      if @image.save
+        flash[:success]  = t(:image_created)
+        flash[:image_id] = @image.id
+        render :text => flash.to_json, :status => 200
+      else
+        flash[:error] = t(:image_create_error)
+        render :text => flash[:error], :status => 500 
       end
     else
       @image = Image.new(params[:image])
