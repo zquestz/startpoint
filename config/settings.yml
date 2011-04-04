@@ -35,6 +35,6 @@
   staging:
   # Production settings
   production:
-    asset_host: startpoint.com.local
+    asset_host: startpoint.local
   # Test settings
   test:
