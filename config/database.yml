@@ -25,4 +25,6 @@ production:
   pool: 5
   username: root
   password: root
-  socket: /opt/local/var/run/mysql5/mysqld.sock
+  socket: <%= ['/opt/local/var/run/mysql5/mysqld.sock',
+               '/var/run/mysqld/mysqld.sock', 
+               '/tmp/mysql.sock'].select { |f| File.exist? f }.first %>
