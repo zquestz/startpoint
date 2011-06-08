@@ -3,7 +3,7 @@ source :gemcutter
 # Include mysqlplus
 # Would use mysql2 but it doesn't work right in 1.8.6
 # Breaks rake db:create && rake db:drop
-gem "mysqlplus", ">= 0.1.2"
+gem "mysql2", "~> 0.2.0"
 
 # Include rails
 gem "rails", "~> 2.3.9"
@@ -56,6 +56,9 @@ gem "newrelic_rpm", '>= 2.12.3'
 
 # Add rcov
 gem "rcov", '>= 0.9.8'
+
+# Add rdoc
+gem "rdoc"
 
 # Include delayed_job
 gem "delayed_job", '~> 2.0.3'
