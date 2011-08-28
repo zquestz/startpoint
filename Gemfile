@@ -28,7 +28,7 @@ gem 'paperclip', '2.3.1.1'
 gem 'bluecloth', '>= 2.0.7'
 
 # Rails doc generators need RedCloth
-gem 'RedCloth', '>= 4.2.3'
+gem 'RedCloth', '4.2.3'
 
 # Pagination features
 gem 'will_paginate', '>= 2.3.14'
