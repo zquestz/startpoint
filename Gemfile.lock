@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    RedCloth (4.2.7)
+    RedCloth (4.2.3)
     actionmailer (2.3.12)
       actionpack (= 2.3.12)
     actionpack (2.3.12)
@@ -61,7 +61,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth (>= 4.2.3)
+  RedCloth (= 4.2.3)
   acts-as-taggable-on (>= 2.0.6)
   authlogic (>= 2.1.5)
   bluecloth (>= 2.0.7)
